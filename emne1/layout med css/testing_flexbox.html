@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div.main {
+            background-color: transparent;
+            border-bottom: none;
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: space-around;
+            gap: 1px;
+            flex-wrap: wrap-reverse;
+            flex-flow: row wrap-reverse;
+
+            
+
+        }
+        div {
+            background-color: lightblue;
+            border-bottom: 1px solid black;
+            /* flex-grow: 1; */
+        }
+            </style>
+
+</head>
+<body>
+    <div class="main">
+        <div> Aaa   aaa aaa aa.<br/>
+              Aaa   aaa aaa aa.
+        </div>
+        <div> Bbb bbb bbb bb.</div>
+        <div>Ccc ccc ccc cc.</div>
+        <div style="flex-shrink: 3;">
+             Ddd ddd ddd dd.<br/>
+             Ddd ddd ddd dd.<br/>
+             Ddd ddd ddd dd.
+        </div>
+        <div>Eee eee eee ee.</div>
+        <div>Fff fff fff ff.</div>
+        <div>
+            <h1> Bla bla bla 1</h1>
+            <p>
+                Bla bla bla. Bla bla bla. Bla bla bla. 
+                Bla bla bla. Bla bla bla. Bla bla bla.
+                Bla bla bla. Bla bla bla. Bla bla bla.
+                Bla bla bla. Bla bla bla. Bla bla bla.
+            </p>
+        </div>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,80 @@
+body {
+    margin-left: 20px;
+    padding-left: 10px;
+}
+
+.card {
+    width: 500px;
+    background-color: gainsboro;
+    border: 1px solid darkgray;
+    margin: 10px;
+}
+
+.innerCard {
+    padding: 10px;
+}
+
+.header {
+    color: white;
+    text-align: center;
+    font-size: large;
+    padding: 1% 0;
+    border: 1px solid gray;
+    user-select: none;
+}
+
+.green {
+    background-color: green;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.red {
+    background-color: red;
+}
+.yellow {
+    background-color: darkorange;
+}
+.dark {
+    background-color: dimgray;
+}
+
+
+
+/* div.FirstEksempel {
+    background-color: green;
+    color: white;
+}
+
+div.SecondEksempel {
+    background-color: blue;
+    color: white;
+}
+
+div.ThirdEksempel {
+    background-color: red;
+    color: white;
+}
+
+div.FourthEksempel {
+    background-color: darkorange;
+    color: white;
+}
+
+div.FifthEksempel {
+    background-color: dimgray;
+    color: white;
+
+
+}
+
+div {
+    padding: 10px;
+    border: solid 1pt;
+    margin: -1px;
+    background-color: gainsboro;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: large;
+} */

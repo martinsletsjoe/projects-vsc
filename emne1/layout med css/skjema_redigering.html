@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .skjema {
+            display: grid;
+            grid-template-rows: 20% 20% 20% 20% 20%;
+            grid-template-areas: 'header header'
+                                'labels controls'
+                                'favorittspråk favorittspråk';
+            justify-content: start;
+            /* line-height: 3vh; */
+        }
+        .header {
+            grid-area: header;
+        }
+        .labels {
+            grid-area: labels;
+        }
+        .favorittspråk {
+            grid-area: favorittspråk;
+        }
+        .controls {
+            grid-area: controls;
+        }
+
+        
+    </style>
+</head>
+
+<body>
+    <div class="skjema" id="app">
+        <div class="header">
+            <h3>Mitt skjema</h3>
+        </div>
+        <div class="labels">
+            First Name </br>
+            Last Name</br>
+            En til hundre</br>
+            Skriv inn et tall</br>
+        </div>
+        <div class="Favorittspråk">
+            Favorittspråk:<br />
+            <input type="radio" name="fav_language" id="html">
+            <label for="html">HTML</label>
+            <br />
+            <input type="radio" name="fav_language" id="css">
+            <label for="css">CSS</label>
+            <br />
+            <input type="radio" name="fav_language" id="js">
+            <label for="js">JavaScript</label>
+            <br />
+        </div>
+        <div class="controls">
+            <input type="text" id="fname"><br />
+            <input type="text" id="lname"><br />
+            <input type="range" id="zero2hundred"><br />
+            <input type="number" id="lname"><br />
+        </div>
+
+
+    </div>
+</body>
+
+</html>

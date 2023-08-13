@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: grid;
+            justify-content: center;
+            /* align-items: center; */
+            /* height: 100vh; */
+            grid-template-areas: 'header footer'
+                                  'header main';
+            grid-template-columns: 10vh;
+        }
+        .tall {
+            font-size: 10vh;;
+            grid-area: header;
+        }
+
+        .arrow {
+            border: solid black;
+            border-width: 0 3px 3px 0;
+            display: inline-block;
+            padding: 15px;
+            background-color: rgba(155, 215, 255, 0);
+            margin: 1vh;
+
+        }
+
+        .up {
+            grid-area: footer;
+            transform: rotate(-135deg);
+        }
+        .down {
+            grid-area: main;
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tall">5</div>
+        <button class="arrow up"></button>
+        <button class="arrow down"></button>
+</body>
+
+</html>
