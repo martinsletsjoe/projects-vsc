@@ -8,35 +8,11 @@
 </head>
 <body>
     <div id="leilighet">
-        <h1>
-            Du står utenfor en leilighet.
-        </h1>
-        <!-- <button onclick="enter"><h2>Gå inn</h2></button> -->
-
-
-
-        <!-- <button onclick="gang">gang</button>
-        <button onclick="soverom">soverom</button>
-        <button onclick="bad">bad</button>
-        <button onclick="stue">stue</button>
- -->
-        <div class="card">
-            <div onclick="Inngang()"><h3>Gå inn</h3></div>
-            <div id="gåInn"></div>
-        </div>
-                <div class="card">
-                    <div onclick="gåUt()"><h3></h3></div>
-                    <div id="gåUt"></div>
-                </div>
-                <div class="card">
-                    <div onclick="stue"></div>
-                    <div id="stue"></div>
-                </div>
-        <div class="card"></div>
-        <div class="card"></div>
+    </div>
         <script>
+            Inngang();
             function Inngang(){
-                document.getElementById('gåInn').innerHTML = /*HTML*/`
+                document.getElementById('leilighet').innerHTML = /*HTML*/`
                 Du er i gangen
                 <button onclick='gåUt()'>
                      Gå ut
@@ -44,18 +20,38 @@
                 <button onclick='stue()'>
                     Gå inn til stua
                 </button>
+                <button onclick='soverom()'>
+                    Gå inn på soverommet
+                </button>
+                <button onclick='bad()'>
+                    Gå inn på badet
+                </button>
                     `;
             }
             function gåUt(){
-                document.getElementById('gåUt').innerHTML = /*HTML*/`
+                document.getElementById('leilighet').innerHTML = /*HTML*/`
                 Du er utenfor
                 <button onclick='Inngang()'> Gå tilbake inn</button>
                     `;
             }
             function stue(){
-                document.getElementById('gåUt').innerHTML = /*HTML*/`
+                document.getElementById('leilighet').innerHTML = /*HTML*/`
                 Du er i stua
                 <button onclick='Inngang()'> Gå tilbake til gangen</button>
+                <button onclick='bad()'> Gå på badet</button>
+                    `;
+            }
+            function soverom(){
+                document.getElementById('leilighet').innerHTML = /*HTML*/`
+                Du er på soverommet
+                <button onclick='Inngang()'> Gå tilbake til gangen</button>
+                    `;
+            }
+            function bad(){
+                document.getElementById('leilighet').innerHTML = /*HTML*/`
+                Du er på badet
+                <button onclick='Inngang()'> Gå tilbake til gangen</button>
+                <button onclick='stue()'> Gå til stua</button>
                     `;
             }
             // function stue(){
