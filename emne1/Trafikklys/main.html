@@ -7,10 +7,68 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="trafficLight">
+    <button id="trafficLight" class="trafficLight">
         <div class="light" style="background-color: red;"></div>
         <div class="light" style="background-color: yellow;"></div>
         <div class="light" style="background-color: green;"></div>
-    </div>
+    </button>
+    <script>
+        let currentLightState = 'red';
+        
+        const button = document.getElementById('trafficLight');
+        const trafficLight = document.getElementById('trafficLight')
+
+        button.addEventListener('click', function() {
+            if (currentLightState === 'red') {
+                redyellowLight();
+            } else if (currentLightState === 'redyellow') {
+            greenLight();
+            } else if (currentLightState === 'green') {
+                yellowLight();
+            } else if (currentLightState === 'yellow') {
+                redLight();
+            }
+        });
+
+        function redLight(){
+            // document.getElementById('trafficLight').innerHTML = /*HTML*/`
+            trafficLight.innerHTML = /*HTML*/`
+                <div class="light" style="background-color: red;"></div>
+                <div class="light" style="background-color: gray;"></div>
+                <div class="light" style="background-color: gray;"></div>
+            `;
+            currentLightState = "red";
+        }
+        function redyellowLight(){
+            // document.getElementById('trafficLight').innerHTML = /*HTML*/`
+            trafficLight.innerHTML = /*HTML*/`
+                <div class="light" style="background-color: red;"></div>
+                <div class="light" style="background-color: yellow;"></div>
+                <div class="light" style="background-color: gray;"></div>
+            `;
+            currentLightState = "redyellow";
+
+        }
+        function yellowLight(){
+            // document.getElementById('trafficLight').innerHTML = /*HTML*/`
+            trafficLight.innerHTML = /*HTML*/`
+                <div class="light" style="background-color: gray;"></div>
+                <div class="light" style="background-color: yellow;"></div>
+                <div class="light" style="background-color: gray;"></div>
+            `;
+            currentLightState = "yellow";
+
+        }
+        function greenLight(){
+            // document.getElementById('trafficLight').innerHTML = /*HTML*/`
+            trafficLight.innerHTML = /*HTML*/`
+                <div class="light" style="background-color: gray;"></div>
+                <div class="light" style="background-color: gray;"></div>
+                <div class="light" style="background-color: green;"></div>
+            `;
+            currentLightState = "green";
+
+        }
+    </script>
   </body>
 </html>

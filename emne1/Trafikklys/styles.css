@@ -1,9 +1,9 @@
 body {
-    background-color: darkgrey;
+    background-color: gray;
 }
-div.trafficLight {
-    width: 3rem;
-    height: 10rem;
+.trafficLight {
+    width: 5rem;
+    height: 12rem;
     display: flex;
     flex-direction: column;
     background-color: black;
@@ -11,7 +11,7 @@ div.trafficLight {
     gap: 1rem;
 }
 
-div.light {
+.light {
     background-color: red;
     border-radius: 50%;
     width: 3rem;
