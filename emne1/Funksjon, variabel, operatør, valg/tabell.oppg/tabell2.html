@@ -44,7 +44,7 @@
         function addRow(dag, tid, minutt, temp) {
 
             let table = document.getElementById("myBody")
-            let rowCount = 10;
+            let rowCount = table.rows.length;
             let row = table.insertRow();
 
             // Lage tabell celler
@@ -54,7 +54,7 @@
             let c4 = row.insertCell();
 
             // Legg til data til c1 og c2
-            c1.innerText = rowCount + 1;
+            c1.innerText = rowCount + 1;;
             c2.innerText = tid;
             c3.innerText = minutt +=15;
             c4.innerText = temp +=1;
