@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" , initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- Test ut HTML-en, dvs. lag en HTML fil med riktig innhold og åpne i nettleseren.
+    Endre til at det er en JavaScript-funksjon som setter denne HTML-en.
+    Forbedre koden så godt du kan ved å refactorere ved å dele opp i funksjoner og bruke paramedive. 
+    Ikke gap over for mye på en gang! Gjør noen små endringer og sjekke at alt virker som før, før du går videre.
+     -->
+
+
+
+    <table id="myTable">
+    </table>
+
+    <script>
+
+        function table(){
+            firstRow();
+            secondRow();
+            thirdRow();
+            fourthRow();
+        }
+
+        function firstRow() {
+            document.getElementById('myTable').innerHTML += /*HTML*/`
+                <th>Dag</th>
+                <th>Time</th>
+                <th>Minutt</th>
+                <th>Temperatur</th> 
+            `;
+        }
+        function secondRow() {
+            document.getElementById('myTable').innerHTML += /*HTML*/`
+            <td>1</td>
+            <td>10</td>
+            <td>0</td>
+            <td>5</td>
+            `;
+        }
+        function thirdRow() {
+            document.getElementById('myTable').innerHTML += /*HTML*/`
+                <td>1</td>
+                <td>10</td>
+                <td>15</td>
+                <td>6</td>
+            `;
+        }
+        function fourthRow() {
+            document.getElementById('myTable').innerHTML += /*HTML*/`
+                <td>1</td>
+                <td>10</td>
+                <td>30</td>
+                <td>7</td>
+            `;
+        }
+       table();
+    </script>
+
+
+</body>
+
+</html>

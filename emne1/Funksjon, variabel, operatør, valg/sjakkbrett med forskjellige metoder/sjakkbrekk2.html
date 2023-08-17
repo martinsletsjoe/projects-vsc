@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="simpleStyles.css">
+</head>
+
+<body>
+    <!-- Måte å jobbe på
+            HTML -- CHECK MARKD
+            Lage HTML med JavaScript -- CHECK MARKD AGANE BOI
+            Mer generelle funksjoner
+            - Funksjoner uten parametre
+            - Funksjoner med parametre
+            DRY- prinsippet (don't repeat yourself)
+        Implementering <-> Refactoring 
+    -->
+
+
+    <div id="board">
+    </div>
+
+    <script>
+        drawBoard();
+
+        function drawBoard() {
+            drawDoubleRow();
+            drawDoubleRow();
+            drawDoubleRow();
+            drawDoubleRow();
+        }
+
+        function drawDoubleRow() {
+            drawRowStartingWithLight();
+            drawRowStartingWithDark();
+        }
+
+        function drawRowStartingWithLight() {
+            drawRowCore();
+            drawDarkcell();
+        }
+
+        function drawRowStartingWithDark() {
+            drawDarkcell();
+            drawRowCore();
+
+                
+        }
+
+        function drawRowCore() {
+            drawLightcell();
+            drawDarkcell();
+            drawLightcell();
+            drawDarkcell();
+            drawLightcell();
+            drawDarkcell();
+            drawLightcell();
+                    
+        }
+
+        function drawDarkcell(){
+            document.getElementById('board').innerHTML +=
+            /*HTML*/`<div class="darkSquare"></div>`;
+        }
+        function drawLightcell(){
+            document.getElementById('board').innerHTML += 
+            /*HTML*/`<div class="lightSquare"></div>`;
+        }
+
+    </script>
+</body>
+
+</html>

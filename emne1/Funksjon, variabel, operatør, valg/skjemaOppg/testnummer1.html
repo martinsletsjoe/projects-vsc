@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #app {
+            display: flex;
+        }
+
+        .place {
+            border: 1px solid gray;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: darkblue;
+            color: white;
+        }
+
+        .place>div {
+            display: grid;
+            grid-template-columns: repeat(2, 100px);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script>
+        showCountry('norge', '5 463 4234', 'oslo')
+        showCountry('Sverige', '9 463 4234', 'Stockholm')
+        showCountry('Finland', '7 777 4234', 'Helsinki')
+
+        function showCountry(country, Befolkning, Hovedstad){
+            document.getElementById('app').innerHTML += /*HTML*/`
+                <div class="place">
+                    <h2>${country}</h2>
+                    <div>
+                        <div>Befolkning:</div>
+                        <div>${Befolkning}</div>
+                        <div>Hovedstad:</div>
+                        <div>${Hovedstad}</div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function showNorway() {
+            document.getElementById('app').innerHTML += /*HTML*/`
+                <div class="place">
+                    <h2>Norge</h2>
+                    <div>
+                        <div>Befolkning:</div>
+                        <div>5 463 4234</div>
+                        <div>Hovedstad:</div>
+                        <div> Oslo</div>
+                    </div>
+                </div>
+                `;
+        }
+
+        function showSweden() {
+            document.getElementById('app').innerHTML += /*HTML*/`
+                <div class="place">
+                    <h2>Sverige</h2>
+                    <div>
+                        <div>Befolkning:</div>
+                        <div>9 463 4234</div>
+                        <div>Hovedstad:</div>
+                        <div>Stockholm</div>
+                    </div>
+                </div>
+                `;
+        }
+    </script>
+
+</body>
+
+</html>

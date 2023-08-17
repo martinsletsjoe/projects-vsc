@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <button id="btn" onclick="addRow(1,10,30,7)">Add row</button>
+
+    <table id="myTable">
+        <thead>
+            <th>Dag</th>
+            <th>Tid</th>
+            <th>Minutt</th>
+            <th>Temperatur</th>
+        </thead>
+        <tbody id="myBody">
+            <tr>
+                <td>1</td>
+                <td>10</td>
+                <td>0</td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>10</td>
+                <td>15</td>
+                <td>6</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>10</td>
+                <td>30</td>
+                <td>7</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+
+        function addRow(dag, tid, minutt, temp) {
+
+            let table = document.getElementById("myBody")
+            let rowCount = 10;
+            let row = table.insertRow();
+
+            // Lage tabell celler
+            let c1 = row.insertCell();
+            let c2 = row.insertCell();
+            let c3 = row.insertCell(); 
+            let c4 = row.insertCell();
+
+            // Legg til data til c1 og c2
+            c1.innerText = rowCount + 1;
+            c2.innerText = tid;
+            c3.innerText = minutt +=15;
+            c4.innerText = temp +=1;
+     }
+    </script>
+</body>
+</html>
