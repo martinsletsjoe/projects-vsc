@@ -4,16 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
+
+
 </head>
 <body>
-    <table>
-        <tr class="row1Header">
-            <th>Dag</th>
-            <th>Time</th>
-            <th>Minutt</th>
-            <th>Temperatur</th>
-        </tr>
-    </table>
+    
+    <div id="dinId">
+
+    </div>
+    
+    <script>
+        show1();
+        function show1() {
+            document.getElementById('dinId').innerHTML = /*HTML*/`
+                <h1>1</h1>
+                <button onclick="show2()">Øke med én</button>
+                <button onclick="show2()">Doble</button>
+            `;
+        }
+    
+</script>
+
 </body>
 </html>

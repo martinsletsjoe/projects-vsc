@@ -12,30 +12,32 @@
     Forbedre koden så godt du kan ved å refactorere ved å dele opp i funksjoner og bruke parametre. Ikke gap over for mye på en gang! Gjør noen små endringer og sjekke at alt virker som før, før du går videre.
  -->
 
-    <div id="questionForm"></div>
+    <div id="questionForm">
+    </div>
 
     <script>
         form();
 
         function form(){
             firstPart();
+            
         }
         
         function firstPart() {
             document.getElementById('questionForm').innerHTML += /*HTML*/`
                 <label for="fname">First name:</label><br/>
-                ${textField('text', 'fname', '')}
+                <input type="text" id="fname"><br/>
                 <label for="lname">Last name:</label><br/>
-                ${textField()}
+                <input type="text" id="lname"><br/>
                 <label for="zero2hundred">En til hundre:</label><br/>
                 <input type="range" min="1" max="100" step="1" id="zero2hundred"><br/>
                 <label for="number">Skriv inn et tall:</label><br/>
                 <input type="number" id="number"><br/>
-                ${radioButtons()}
+                <input type="radio" id="html" name="fav_language" value="HTML">
                 <label for="html">HTML</label><br/>
-                ${radioButtons()}
+                <input type="radio" id="css" name="fav_language" value="CSS">
                 <label for="css">CSS</label><br>
-                ${radioButtons()}
+                <input type="radio" id="javascript" name="fav_language" value="JavaScript">
                 <label for="javascript">JavaScript</label><br/>
                 <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
                 <label for="vehicle1"> I have a bike</label><br/>
@@ -43,7 +45,7 @@
                 <label for="vehicle2"> I have a car</label><br/>
                 <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
                 <label for="vehicle3"> I have a boat</label><br/>
-                `;
+                `; 
         }
 
         function textField(type, id, label){
@@ -51,15 +53,17 @@
             <input type="${text}" id="${id}"><br/>
             `;
         }
+        // <label for="fname">First name:</label><br/>
+        // <input type="text" id="fname"><br/>
 
-        function radioButtons() {
-            return /*HTML*/`
-            <input type="radio" id="html" name="fav_language" value="HTML">`;
-        }
+        // function radioButtons() {
+        //     return /*HTML*/`
+        //     <input type="radio" id="html" name="fav_language" value="HTML">`;
+        // }
 
-        function checkbox(){
+        // function checkbox(){
             
-        }
+        // }
 
     </script>
 
