@@ -2,46 +2,42 @@ function showForm() {
     document.getElementById('app').innerHTML =
         createField('text', 'fname', 'First name:')
         + createField('text', 'lname', 'Last name:')
-        + createField('range', 'zero2hundred', 'en til hundre:', 1, 100, 1)
+        + createField('range', 'zero2hundred', 'en til hundre:',null, 1, 100, 1)
         + createField('number', 'number', 'Skriv inn et tall:')
-        + createField('radio', 'html', 'HTML')
-        + createField('radio', 'css', 'CSS')
-        + createField('radio', 'js', 'JavaScript')
+        + createField('radio', 'html', 'HTML', 'fav_language')
+        + createField('radio', 'css', 'CSS', 'fav_language')
+        + createField('radio', 'js', 'JavaScript', 'fav_language')
         + createField('checkbox', 'bike', 'I have a bike')
         + createField('checkbox', 'car', 'I have a car')
         + createField('checkbox', 'boat', 'I have a boat');
 
 }
 
-function createField(type, id, label, min, max, step) {
-    const extraAttributes = type == 'range' ? `min="${min}" max="${max}" step="${step}"` : '';
-    const breakHtml = /*HTML*/`<br/>`;
-    const labelHtml = /*HTML*/`<label for="${id}">${label}</label>`;
-    const inputHtml = /*HTML*/`<input type="${type}" id="${id}" ${extraAttributes}>`;
-    if (type=='radio' || type=='checkbox') {
-        return inputHtml + ' ' + labelHtml + breakHtml
-    }
-    return labelHtml + breakHtml + inputHtml + breakHtml;
+function createField(type, id, label, radiogroup, min, max, step,) {
+    const extra = getExtraAttributes(type, min, max, step, radiogroup);
+
+    const isRadioOrCheck = type == 'radio' || type == 'checkbox';
+    const inputHtml = createInputHtml(type, id, extra);
+    const labelHtml = createLabelHtml(id, label);
+    return isRadioOrCheck ? inputHtml + ' ' + labelHtml + `<br/>`
+    : labelHtml + `<br/>` + inputHtml + `<br/>`;
+}
+function createInputHtml(type, id, extra) {
+    return /*HTML*/`<input type="${type}" id="${id}" ${extra}>`;
 }
 
-function createCheckboxBike() {
-    return /*HTML*/`
-        <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-        <label for="vehicle1"> I have a bike</label><br/>   
-    `;
+function createLabelHtml(id, label) {
+    return /*HTML*/`<label for="${id}">${label}</label>`;
 }
 
-function createCheckboxCar() {
-    return /*HTML*/`
-        <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
-        <label for="vehicle2"> I have a car</label><br/>
-    `;
-}
+function getExtraAttributes(type, min, max, step, radiogroup) {
+    if(type == 'range') return `min="${min}" max="${max}" step="${step}"`;
+    if(type == 'radio') return `name="${radiogroup}"`;
+    return '';
 
-function createCheckboxBoat() {
-    return /*HTML*/`
-        <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
-        <label for="vehicle3"> I have a boat</label><br/>
-    `;
+
+    // return type == 'range' ? `min="${min}" max="${max}" step="${step}"`
+    //     : type == 'radio' ? `name="${radiogroup}"`
+    //         : '';
 }
 
