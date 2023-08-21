@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-size: 16px;
+            /* background-color: rgb(222, 0, 39);  */
+        }
+
+    </style>
+</head>
+<body>
+    
+
+    <div id="myId">Hei og hå</div>
+    <button onclick="changeFontSize(100)">trykk her</button>
+    <button onclick="changeFontSize(200)">trykk her</button>
+
+    <button onclick="moreRed()">red</button>
+    
+
+    <select onchange="selectFontFamily(this.value)">
+        <option>Arial</option>
+        <option>Verdana</option>
+        <option>Tahoma</option>
+        <option>Trebuchet MS</option>
+        <option>Times New Roman</option>
+        <option>Georgia</option>
+        <option>Garamond</option>
+        <option>Courier New</option>
+        <option>Brush Script MT</option>
+    </select>
+
+    <div id="info"></div>
+    <script>
+        let redValue = 125
+        let greenValue = 125
+        let blueValue = 125
+
+        function changeFontSize(myVariable){
+            document.getElementById('myId').style.fontSize = `${myVariable}pt`;      
+        }
+
+        function selectFontFamily(fontFamily){
+            document.getElementById('info').innerHTML = `du har valgt ${fontFamily}.`;
+        }
+
+        
+        document.getElementById('myId').style.backgroundColor = `rgb(${redValue},${greenValue},${blueValue})`;
+        
+        function moreRed(){
+            redValue = redValue +=50;
+        }
+
+    </script>
+    
+    
+
+</body>
+</html>
+</body>
+</html>
