@@ -15,8 +15,15 @@
     <style>
         body {
             font-size: 16px;
-            /* background-color: rgb(222, 0, 39);  */
+            display: grid;
+            grid-template-columns: (3, 1fr);
+            grid-template-rows: (3, 1fr);
+            place-items:  start;
         }
+        .firstButtons {
+            padding-top: 50px;
+        }
+
 
     </style>
 </head>
@@ -24,11 +31,18 @@
     
 
     <div id="myId">Hei og hå</div>
-    <button onclick="changeFontSize(100)">trykk her</button>
-    <button onclick="changeFontSize(200)">trykk her</button>
+    <div class="firstButtons">
+        <button onclick="changeFontSize(100)">stor</button>
+        <button onclick="changeFontSize(200)">større</button>
+        <button onclick="changeFontSize(10)">Mindre</button></br>
 
-    <button onclick="moreRed()">red</button>
-    
+        <button onclick="moreRed()">mer rødt</button>
+        <button onclick="lessRed()">mindre rødt</button></br>
+        <button onclick="moreGreen()">mer grønt</button>
+        <button onclick="lessGreen()">mindre grønt</button></br>
+        <button onclick="moreBlue()">mer blått</button>
+        <button onclick="lessBlue()">mindre blått</button>
+    </div>
 
     <select onchange="selectFontFamily(this.value)">
         <option>Arial</option>
@@ -57,10 +71,35 @@
         }
 
         
-        document.getElementById('myId').style.backgroundColor = `rgb(${redValue},${greenValue},${blueValue})`;
+        stdColorSetup()
         
         function moreRed(){
-            redValue = redValue +=50;
+            redValue = redValue +=10;
+            stdColorSetup() 
+        }
+        function lessRed(){
+            redValue = redValue -=10;
+            stdColorSetup()
+        }
+        function moreGreen(){
+            greenValue = greenValue +=10;
+            stdColorSetup() 
+        }
+        function lessGreen(){
+            greenValue = greenValue -=10;
+            stdColorSetup()
+        }
+        function moreBlue(){
+            blueValue = blueValue +=10;
+            stdColorSetup()
+        }
+        function lessBlue(){
+            blueValue = blueValue -=10;
+            stdColorSetup()
+        }
+
+        function stdColorSetup(){
+            document.getElementById('myId').style.backgroundColor = `rgb(${redValue},${greenValue},${blueValue})`; 
         }
 
     </script>
