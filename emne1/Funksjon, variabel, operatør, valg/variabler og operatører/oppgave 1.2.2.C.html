@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-size: 16px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="myId">Hei og hå</div>
+
+    <button onclick="changeFontSize(100)">trykk her</button>
+    <button onclick="changeFontSize(200)">trykk her</button>
+
+    
+    
+
+    
+    <script>
+        function changeFontSize(myVariable){
+            document.getElementById('myId').style.fontSize = `${myVariable}pt`;      
+        }
+
+        
+    </script>
+    
+
+</body>
+</html>

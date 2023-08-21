@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+
+        #board {
+            display: grid;
+            grid-template-columns: repeat(8, 100px);
+            grid-template-rows: repeat(8, 100px);
+        }
+
+        #board>div {
+            border: 1px solid lightblue;
+        }
+
+        .selected {
+            background-color: yellow;
+        }
+
+        .button {
+            margin: 5px;
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="board">
+    </div>
+
+    <script>
+        let selectedSquareIndex = 7;  //deklarasjon
+        const size = 64;
+
+
+        showBoard();
+
+        function showBoard() {
+            const lengthPart1 = selectedSquareIndex;
+            const lengthPart3 = size - (selectedSquareIndex + 1)
+            const part2 = '<div class="selected"></div>'
+
+            document.getElementById('board').innerHTML = boardVariables(lengthPart1) +
+                part2 + boardVariables(lengthPart3);
+        }
+
+        function boardVariables(length) {
+            const pattern = '<div></div>';
+            return ''.padEnd(pattern.length * length, pattern)
+        }
+
+
+
+        function goDown() {
+            const downRow = selectedSquareIndex += 8;
+            showBoard();
+        }
+        function goUp() {
+            const upRow = selectedSquareIndex -= 8;
+            document.getElementById('board').innerHTML = upRow
+            showBoard();
+        }
+        function goLeft() {
+            const leftRow = selectedSquareIndex--;
+            document.getElementById('board').innerHTML = leftRow
+            showBoard();
+        }
+        function goRight() {
+            const rightRow = selectedSquareIndex++;
+            document.getElementById('board').innerHTML = rightRow
+            showBoard();
+        }
+    </script>
+    <button class="button" onclick="goUp()">Opp</button></br>
+    <button class="button" onclick="goLeft()">Venstre</button>
+    <button class="button" onclick="goRight()">Høgre</button></br>
+    <button class="button" onclick="goDown()">Ned</button>
+
+
+
+
+</body>
+
+</html>
