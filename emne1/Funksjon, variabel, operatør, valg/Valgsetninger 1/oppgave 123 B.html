@@ -4,11 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        #slidah {
+            background-color: yellow;
+        }
+    </style>
 </head>
 <body>
-    <div id="tallatut">
-        <input id="zero2hundred" type="range">
-        
+    <div id="slidah">
     </div>
+        
+    <script>
+        let sliderNumber = 50;
+        changecolours();
+
+        function changecolours(){
+            document.getElementById('slidah').innerHTML = /*HTML*/`
+            <label for="zero2hundred">En til hundre:</label><br/>
+            <input type="range" min="0" max="100" step="1" id="zero2hundred" value="${sliderNumber}" onchange="updateSliderValue()">
+            `;
+        }
+        function updateSliderValue() {
+            sliderNumber = parseInt(document.getElementById('zero2hundred').value);
+            const slidahElement = document.getElementById('slidah');
+        
+            if (sliderNumber < 30) {
+                slidahElement.style.background = "red";
+            }else if (sliderNumber > 70) {
+                slidahElement.style.background = 'green'
+            }else {
+                slidahElement.style.background = "yellow"
+            }
+        }
+    </script>
 </body>
 </html>

@@ -1,0 +1,77 @@
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trafikklys</title>
+    <style>
+        div.trafficLight {
+            width: 3rem;
+            height: 10rem;
+            display: flex;
+            flex-direction: column;
+            background-color: black;
+            padding: 1rem;
+            gap: 1rem;
+        }
+
+        div.light {
+            background-color: red;
+            border-radius: 50%;
+            width: 3rem;
+            height: 3rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <button onclick="drawTrafficLight()">neste</button>
+
+    <script>
+        
+        let phase = "0"
+
+        function createLightDiv(color) {
+            return /*HTML*/`<div class="light" style="background-color: ${color};"></div>`;
+        }
+
+        function createTrafficLight(isRed, isYellow, isGreen) {
+            let color1 = 'gray';
+            let color2 = 'gray';
+            let color3 = 'gray';
+            if (isRed) color1 = 'red';
+            if (isYellow) color2 = 'yellow';
+            if (isGreen) color3 = 'green';
+
+            return /*HTML*/`
+                <div class="trafficLight">
+                    ${createLightDiv(color1)}
+                    ${createLightDiv(color2)}
+                    ${createLightDiv(color3)}
+                </div>
+            `;
+        }
+        function drawTrafficLight(isRed, isYellow, isGreen){
+            document.getElementById('app').innerHTML = createTrafficLight(true, false, false);
+        }
+
+
+
+
+        function RedLight(isRed, isYellow, isGreen){
+            document.getElementById('app').innerHTML = createTrafficLight(true, false, false);
+        }
+        function YellowLight(isRed, isYellow, isGreen){
+            document.getElementById('app').innerHTML = createTrafficLight(false, true, false);
+        }
+        function RedYellowLight(isRed, isYellow, isGreen){
+            document.getElementById('app').innerHTML = createTrafficLight(true, true, false);
+        }
+        function GreenLight(isRed, isYellow, isGreen){
+            document.getElementById('app').innerHTML = createTrafficLight(false, false, true);
+        }
+
+    </script>
+</body>
+
+</html>
