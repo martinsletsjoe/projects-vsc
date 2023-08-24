@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        evaluateHangman();
+        function evaluateHangman(secretText, currentText, guessedLetter){
+            const index = secretText.indexOf(guessedLetter);
+            if(index == -1) return currentText;
+            const currentTextBeforeGuessedLetter = currentText.substring(0, index);     
+            const currentTextAfterGuessedLetter = currentText.substring(index + 1);
+            const secretTextAfterGuessedLetter = secretText.substring(index + 1);
+            return currentTextBeforeGuessedLetter + guessedLetter 
+                + evaluateHangman(secretTextAfterGuessedLetter, currentTextAfterGuessedLetter, guessedLetter);
+}
+    </script>
+
+
+</body>
+</html>
