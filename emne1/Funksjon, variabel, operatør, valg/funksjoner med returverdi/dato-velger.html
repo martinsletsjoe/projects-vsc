@@ -1,17 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    <div style="display: flex;align-items: center;">
-        <div id="Day" style="font-size: 300%;">1</div>
-        <div style="display: flex; flex-direction: column;align-items: flex-start;">
-            <button onclick="selectDay(2)">▲</button>
-            <button onclick="selectDay(0)" disabled>▼</button>
-        </div>
-    </div>
+    <div id="app"></div>
+    <script>
+        
+
+        function createNumberSelector(number, min, max, timespan){
+            return /*HTML*/`
+                <div style="display: flex;align-items: center;">
+                    <div id="${timespan}" style="font-size: 300%;">${number}</div>
+                    <div style="display: flex; flex-direction: column;align-items: flex-start;">
+                        <button onclick="selectDay(5)">▲</button>
+                        <button onclick="selectDay(3)">▼</button>
+                    </div>
+                </div>
+            `;
+        }
+        function selectDay(number, min, max, timespan) {
+            createNumberSelector(number, min, max, timespan)
+            if (number > min && number < max){
+                number ++;
+            }else if (number < min){
+                // disable down button
+            }
+        }
+
+
+
+
+
+        function showDateSelector() {
+            document.getElementById('app').innerHTML =
+                createNumberSelector(13, 1, 31, 'Day')
+                + createNumberSelector(8, 1, 12, 'Month')
+                + createNumberSelector(2023, 2020, 2025, 'Year');
+        }
+        showDateSelector();
+
+
+
+    </script>
 </body>
+
 </html>
