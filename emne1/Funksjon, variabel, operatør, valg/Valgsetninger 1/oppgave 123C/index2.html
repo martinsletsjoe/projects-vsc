@@ -1,7 +1,9 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Trafikklys</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
     <style>
         div.trafficLight {
             width: 3rem;
@@ -21,13 +23,13 @@
         }
     </style>
 </head>
-
 <body>
     <div id="app"></div>
-
+    <button onclick="goToNextPhase()">neste</button>
     <script>
-        document.getElementById('app').innerHTML = createTrafficLight(true, false, false);
-        let phase = "0"
+        let phase = 0;
+        createTrafficLight(true, true, true);
+
 
         function createLightDiv(color) {
             return /*HTML*/`<div class="light" style="background-color: ${color};"></div>`;
@@ -42,21 +44,32 @@
             if (isYellow) color2 = 'yellow';
             if (isGreen) color3 = 'green';
             
-            return /*HTML*/`
+            const trafficLightHTML = /*HTML*/`
                 <div class="trafficLight">
                     ${createLightDiv(color1)}
                     ${createLightDiv(color2)}
                     ${createLightDiv(color3)}
                 </div>
             `;  
+            document.getElementById('app').innerHTML = trafficLightHTML
         }
+        // createTrafficLight(true, true, true);
 
+        function goToNextPhase() {
+            phase = (phase + 1) % 4;
+            console.log(phase);
+            if (phase == 0) {
+                createTrafficLight(true, false, false);
+            }else if (phase == 1) {
+                createTrafficLight(true, true, false);
+            }else if (phase == 2) {
+                createTrafficLight(false, false, true)
+            }else if (phase == 3) {
+                createTrafficLight(false, true, false)
+            } 
+        }
+   
 
-       
-
-
-
-    </script>
+    </script>   
 </body>
-
 </html>
