@@ -17,13 +17,13 @@
                 <div style="display: flex;align-items: center;">
                     <div id="${timespan}" style="font-size: 300%;">${number}</div>
                     <div style="display: flex; flex-direction: column;align-items: flex-start;">
-                        <button onclick="selectDay(5)">▲</button>
-                        <button onclick="selectDay(3)">▼</button>
+                        <button onclick="selectDay(${number++})">▲</button>
+                        <button onclick="selectDay(${number--})">▼</button>
                     </div>
                 </div>
             `;
         }
-        function selectDay(number, min, max, timespan) {
+        function selectDay(number, min, max) {
             createNumberSelector(number, min, max, timespan)
             if (number > min && number < max){
                 number ++;
@@ -31,10 +31,6 @@
                 // disable down button
             }
         }
-
-
-
-
 
         function showDateSelector() {
             document.getElementById('app').innerHTML =
