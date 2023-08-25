@@ -10,53 +10,48 @@
 <body>
     <div id="app"></div>
     <script>
-        
-
-        function createNumberSelector(number, min, max, timespan){
-            return /*HTML*/`
-                <div style="display: flex;align-items: center;">
-                    <div id="${timespan}" style="font-size: 300%;">${number}</div>
-                    <div style="display: flex; flex-direction: column;align-items: flex-start;">
-                        <button onclick="incrementSelectDay(${number})">▲</button>
-                        <button onclick="decrementSelectDay(${number})">▼</button>
-                    </div>
-                </div>
-            `;
-        }
-
-        function incrementSelectDay(number, min, max){
-            if (number <1 && number > 31){
-                return
-            }else{
-                number += 1;
-                selectDay(number);
-            }
-        }
-        function decrementSelectDay(number){
-            number -= 1;
-            selectDay(number);
-        }
-
-        function selectDay(number, min, max, timespan) {
-            document.getElementById('app').innerHTML = /*HTML*/`
-            <div style="display: flex;align-items: center;">
-                    <div id="${timespan}" style="font-size: 300%;">${number}</div>
-                    <div style="display: flex; flex-direction: column;align-items: flex-start;">
-                        <button onclick="incrementSelectDay(${number})">▲</button>
-                        <button onclick="decrementSelectDay(${number})">▼</button>
-                    </div>
-                </div>
-            `;
-            
-        }
-
+        showDateSelector();
         function showDateSelector() {
             document.getElementById('app').innerHTML =
-                createNumberSelector(13, 1, 31, 'Day')
-                // + createNumberSelector(8, 1, 12, 'Month')
-                // + createNumberSelector(2023, 2020, 2025, 'Year');
+                createNumberSelector(31, 1, 31, 'Day')
+                + createNumberSelector(8, 1, 12, 'Month')
+                + createNumberSelector(2023, 2020, 2025, 'Year');
         }
-        showDateSelector();
+
+
+        function createNumberSelector(number, min, max, id) {
+            let numberUp = number +1;
+            let numberDown = number -1;
+            let disableUp = '';
+            let disableDown = '';
+            if(numberDown < min) disableDown = 'disabled'
+            if(numberUp > max) disableUp = 'disabled'
+
+
+            return /*HTML*/`
+                <div id="${id}Main" style="display: flex;align-items: center;">
+                    <div id="${id}" style="font-size: 300%;">${number}</div> 
+                    <div style="display: flex; flex-direction: column;align-items: flex-start;">
+                        <button onclick="Select${id}(${numberUp})" ${disableUp}>▲</button>
+                        <button onclick="Select${id}(${numberDown})" ${disableDown}>▼</button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function selectDay(day){
+            document.getElementById('dayMain').outerHTML =
+            createNumberSelector(day, 1, 31, 'day')
+
+
+        }
+
+        function getDate(){
+            let day = document.getElementById('day').innerHTML;
+            let month = document.getElementById('month').innerHTML;
+            let year = document.getElementById('year').innerHTML;
+            return day.month.year
+        }
 
 
 

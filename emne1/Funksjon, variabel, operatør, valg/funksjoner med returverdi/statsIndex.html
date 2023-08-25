@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="button"  onclick="addNumber()">Legg til tall</button>
+    <input id="number" type="number">
+
+    <div id="app"></div>
+
+
+
+    <script>
+        let sum = 0
+        let antallTall = 0
+        let min = null
+        
+
+        function addNumber(){
+            let number = document.getElementById('number').valueAsNumber
+             sum += number
+             antallTall ++;
+             average = sum / antallTall;
+             if (min == null){
+                min = number
+             }
+             if (number < min){
+                min = number
+             }
+
+            document.getElementById('app').innerHTML = /*HTML*/`
+                Siste tall var: ${number} <br/>
+                sum: ${sum}<br/>
+                antall: ${antallTall}<br/>
+                gjennomsnitt: ${average}<br/>
+
+                minste verdi: ${min}
+
+            `;
+        }
+
+    </script>
+
+
+
+
+
+</body>
+</html>
