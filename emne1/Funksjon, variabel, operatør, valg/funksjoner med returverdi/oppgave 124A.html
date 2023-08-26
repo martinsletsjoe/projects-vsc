@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Lag en funksjon til bruk i handlekurven i en nettbutikk. Funksjonen skal lage teksten til en av "ordrelinjene". 
+    Som parameter tar funksjonen varens navn, varens pris og antall varer. 
+    Gitt verdiene 'Tastatur', 129, 3 skal funksjonen returnere teksten 3 stk. 
+    Tastatur a 129kr = 387kr. -->
+
+
+    <div id="app"></div>
+
+
+        <script>
+            let sum = 0
+
+            function checkOutBasket(itemName, price, amountOfItems){
+                sum = amountOfItems * price
+
+
+                document.getElementById('app').innerHTML = /*HTML*/`
+                
+                ${amountOfItems} stk. ${itemName} koster per: ${price}kr = Til en sum ${sum}kr
+                
+
+                `;
+            }
+            checkOutBasket('tastatur pog', 129, 3);
+
+        </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
