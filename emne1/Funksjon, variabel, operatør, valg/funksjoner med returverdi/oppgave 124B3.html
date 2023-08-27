@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <button id="convert" onclick="convertTemperature()">Convert</button>
+    <label for="numbersHere">Write number here</label>
+    <input id="numbersHere" type="number">
+    <label for="checkValue">Write temperature scale here, C/F</label>
+    <input id="checkValue" type="text">
+</br>
+</br>
+    <div id="app"></div>
+
+
+    <script>
+        let temperature;        
+        
+        function convertTemperature () {
+            temperature = document.getElementById('numbersHere').valueAsNumber
+            let tempScale = document.getElementById('checkValue').value
+
+            if (tempScale === 'F' || tempScale === 'f'){
+                convertFahrenheitToCelcius();
+                
+            }else if (tempScale === 'C' || tempScale == 'c') {
+                convertCelciusToFahrenheit();
+            }else {
+                document.getElementById('app').innerHTML=/*HTML*/`Try again buddy`;
+            } 
+        }
+        function convertFahrenheitToCelcius() {
+            let celcius = parseInt((temperature - 32)*5/9);
+                document.getElementById('app').innerHTML=/*HTML*/ `
+                ${temperature} grader fahrenheit er ${celcius} grader celcius`;
+        }
+        
+        function convertCelciusToFahrenheit() {
+            let fahrenheit = parseInt((temperature * 9/5)+32);
+                document.getElementById('app').innerHTML=/*HTML*/ `
+                ${temperature} grader celcius er ${fahrenheit} grader fahrenheit`;
+        }
+
+            
+</script>
+</body>
+</html>

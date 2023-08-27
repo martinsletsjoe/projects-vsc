@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <button id="convert" onclick="convertTemperature()">Convert</button>
+    <label for="numbersHere">Write number here</label>
+    <input id="numbersHere" type="number">
+    <label for="checkValue">Write temperature scale here, C/F</label>
+    <input id="checkValue" type="text">
+</br>
+</br>
+    <div id="app"></div>
+
+
+    <script>
+
+        function convertTemperature () {
+            let temperature = document.getElementById('numbersHere').valueAsNumber
+            let tempScale = document.getElementById('checkValue').value
+
+            let celcius = parseInt((temperature - 32)*5/9);
+            let fahrenheit = parseInt((temperature * 9/5)+32);
+            // return `${temperature} degrees celcius is ${fahrenheit} degrees fahrenheit`;
+            if (tempScale === 'F' || tempScale === 'f'){
+                document.getElementById('app').innerHTML=/*HTML*/ `${celcius} grader celcius
+                `;
+            }else if (tempScale === 'C' || tempScale == 'c') {
+                document.getElementById('app').innerHTML=/*HTML*/ `${fahrenheit} grader fahrenheit`;
+            }else {
+                document.getElementById('app').innerHTML=/*HTML*/`Is it cold outside Daniel?`;
+            } 
+            ;
+        }
+
+            
+</script>
+</body>
+</html>
+            <!-- // document.getElementById('app').innerHTML = /*HTML*/ `
+            
+            //     ${celcius} grader celcius
+            //     ${fahrenheit} grader fahrenheit
+            ;
+        }
+
+
+        // document.getElementById('app').textContent = result -->
