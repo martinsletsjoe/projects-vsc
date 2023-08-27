@@ -11,11 +11,17 @@
 
     <script>
 
-        function celciusToFahrenheit(temperature) {
-            let fahrenheit = temperature * (9/5)+ 32
-            return `${temperature} degrees celcius is ${fahrenheit} degrees fahrenheit`;
+        function celciusToFahrenheit(temperature, unit) {
+            let fahrenheit = temperature * (9/5)+ 32;
+            let celcius = parseInt((temperature - 32)*5/9);
+            if (unit == 'F') {
+                return `${temperature} degrees fahrenheit is ${celcius} degrees celcius`;
+            }else if (unit == 'C') {
+                return `${temperature} degrees celcius is ${fahrenheit} degrees fahrenheit`;
+            }
+
         }
-        const result = celciusToFahrenheit(32);
+        const result = celciusToFahrenheit(320, 'F');
         document.getElementById('app').textContent = result
 
     </script>

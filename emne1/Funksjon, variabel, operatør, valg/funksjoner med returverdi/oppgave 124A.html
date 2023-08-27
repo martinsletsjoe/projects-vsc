@@ -20,9 +20,10 @@
                 let sum = amountOfItems * price
                 return `${amountOfItems} stk. ${itemName} koster per: ${price} kr = Til en ${sum} sum kr`;    
             }
-            const result = checkOutBasket('Tastatur', 129, 3);
-            document.getElementById('app').textContent = result;
-            // appContainer.textContent = result;
+            // const result = checkOutBasket('Tastatur', 129, 3);
+            document.getElementById('app').textContent =
+            checkOutBasket('Tastatur', 129, 3);
+           
         </script>
 </body>
 </html>
