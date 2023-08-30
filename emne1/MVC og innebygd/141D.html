@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>skjema</title>
+
+    <style>
+        body {
+            margin: 30px;
+            line-height: 30px;
+        }
+    </style>
+</head>
+<body>
+
+
+
+    <div id="app"></div>
+
+
+
+
+    <script>
+        //model
+        let registerName = document.getElementById('nameInput');
+        let registerEmail = document.getElementById('emailInput');
+
+
+        //controller
+        function register() {
+            let name = registerName.value;
+            let email = registerEmail.value;
+            document.getElementById('app').innerHTML = /*HTML*/`
+            
+            <label>Takk ${name}, for at du har registrert din epost: ${email} hos oss.</label></br>
+            <button onclick="updateView()">Rediger</button>
+
+            `;
+        }
+
+        //view
+        function updateView() {
+            document.getElementById('app').innerHTML = /*HTML*/`
+            <div>Hva heter du?</div>
+            <input id="nameInput" type="text"></input></br>
+            <label>Hva er e-post adressen din?</label></br>
+            <input id="emailInput" type="text"></input></br>
+            
+            <button onclick="register()">Trykk for å registrere</button>
+            `;
+        }
+        updateView();
+
+
+
+    </script>
+    
+</body>
+</html>

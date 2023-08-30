@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>meal planner</title>
+    <style>
+        body {
+            line-height: 4vh;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dagens måltider:</h1>
+
+    <label for="breakfastChoices">Hva er det du vil spise idag?</label></br>
+    <select id="breakfastChoices">
+        <option value="cereal">Lion frokostblanding</option>
+        <option value="bread">Brødskivær</option>
+        <option value="air">niks/nada</option>
+    </select></br>
+    <select id="lunchChoices">
+        <option value="soup">Suppe</option>
+        <option value="pizza">Pizza</option>
+        <option value="fullEnglish">Full engelsk</option>
+    </select></br>
+    <select id="dinnerChoices">
+        <option value="fishnStuff">Fisk</option>
+        <option value="spaghetti">Spaghetti</option>
+        <option value="beef tartar">Biff tartar</option>
+    </select></br>
+
+    <button onclick="summarizeMeals()">Trykk her for å samle måltider</button>
+
+    <div id="app"></div>
+
+    
+    
+    <script>
+        var firstMeal = document.getElementById('breakfastChoices');
+        var secondMeal = document.getElementById('lunchChoices');
+        var thirdMeal = document.getElementById('dinnerChoices');
+
+
+        function summarizeMeals() {
+            let breakfast = firstMeal.value;
+            let lunch = secondMeal.value;
+            let dinner = thirdMeal.value;
+            document.getElementById('app').innerHTML = /*HTML*/`
+            First meal of the day will be ${breakfast}.</br>
+            For lunch you will be served: ${lunch}.</br>
+            And to finish off your day you have chosen: ${dinner}.
+
+            
+            `;
+            
+        }
+
+    </script>
+</body>
+</html>

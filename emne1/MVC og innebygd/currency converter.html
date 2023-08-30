@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency converter</title>
+    <style>
+        body {
+            line-height: 5vh;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Create a simple currency converter. You have two <select> elements: one for selecting the source currency and another for selecting the target currency. 
+        Below the <select> elements, display a text box for entering the amount in the source currency. 
+        When the user selects currencies and enters an amount, show the converted amount in the target currency. -->
+
+
+
+
+    <label for="sourceCurrency">Hvilken valuta vil du har du?</label>
+    <select id="sourceCurrency">
+        <option value=1>Norsk Krone</option>
+        <option value=1.03>Svensk Krone</option>
+        <option value=0.64>Dansk Krone</option>
+    </select></br>
+    
+    <input type="number" id="amount" placeholder="Legg inn sum"></br>
+
+    <label for="targetCurrency">Hvilken valuta vil du gjøre om til?</label>
+    <select id="targetCurrency">
+        <option value=1>Norsk Krone</option>
+        <option value=1.03>Svensk Krone</option>
+        <option value=0.64>Dansk Krone</option>
+    </select></br>
+
+    <button onclick="convertCurrency()">Konverter</button>
+    
+    <p>Resultat: <span id="conversionResult"></span></p>
+
+
+    <script>
+        var amountInput = document.getElementById('amount');
+        var baseCurrency = document.getElementById('sourceCurrency');
+        var secondCurrency = document.getElementById('targetCurrency');
+        var resultSpan = document.getElementById('conversionResult');
+;
+
+
+        function convertCurrency() {
+            var amount = amountInput.valueAsNumber;
+            var from = parseFloat(baseCurrency.value);
+            var to = parseFloat(secondCurrency.value);
+            
+            var convertedAmount = amount * (to / from);
+
+            resultSpan.textContent = convertedAmount.toFixed(2); 
+        }
+    </script>
+
+</body>
+</html>

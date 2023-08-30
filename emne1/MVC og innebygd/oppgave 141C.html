@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <label for="foreground">Velg fargen til teksten</label>
+    <select name="fargeTilText" id="foreground" onchange="updateForegroundColor(this.value)">
+        <option value="red">Red</option>
+        <option value="yellow">Yellow</option>
+        <option value="blue">Blue</option>
+    </select>
+    <label for="backgroundToText">Velg bakgrunnsfarge</label>
+    <select name="colorChoices" id="backgroundToText" onchange="updateBackgroundColor(this.value)">
+        <option value="red">Red</option>
+        <option value="yellow">Yellow</option>
+        <option value="blue">Blue</option>
+    </select>
+
+    <button id="addButton" onchange="updateView()">Legg til div</button>
+
+    <div id="app">12123</div>
+
+    <script>
+        // Define and initialize backColor variable
+        let backColor = 'white';  // Default background color
+        let foreColor = 'black';
+
+        // Function to update background color
+        function updateBackgroundColor(color) {
+            backColor = color;
+            updateView();
+        }
+        function updateForegroundColor(color) {
+            foreColor = color;
+            updateView();
+        }
+        function addNewDiv() {
+            const newDiv = document.createElement('div');
+            newDiv.textContent = 'Dette er en div';
+            newDiv.style.backgroundColor = backColor;
+            newDiv.style.color = foreColor;
+
+            const appContainer = document.getElementById('app');
+            appContainer.appendChild(newDiv);
+        }
+
+        // view
+        function updateView() {
+            document.getElementById('app').style.backgroundColor = backColor;
+            document.getElementById('app').style.color = foreColor;
+        }
+        const addButton = document.getElementById('addButton');
+        addButton.addEventListener('click', addNewDiv);
+    </script>  
+</body>
+</html>
+
