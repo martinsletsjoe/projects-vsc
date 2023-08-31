@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="app"></div>
+
+    <input id="grading" type="number" oninput="updateGradeLetter()">
+
+    
+
+
+    <script>
+        let a = 80;
+        let b = 60;
+        let c = 40;
+        let d = 20;
+        let f = 0;
+
+
+        function testGrade(number) {
+            return number >= a ? 'A' :
+                    number >= b ? 'B' :
+                    number >= c ? 'C' :
+                    number >= d ? 'D' : 'F';
+        }
+
+        function updateGradeLetter(){
+            const inputElement = document.getElementById('grading');
+            const inputValue = parseInt(inputElement.value);
+            const result = testGrade(inputValue);
+            document.getElementById('app').innerHTML = result;
+        }
+        updateGradeLetter();
+
+
+    </script>
+
+
+
+</body>
+</html>
