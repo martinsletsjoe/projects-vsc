@@ -47,7 +47,7 @@
                                 <div class="header color5" onclick="showBodyGame()">Hode, kropp og ben
                                 </div>
                                 <div style="display: flex;" id="headButtons">
-                                    ${showHeadNumber1()}
+                                    ${showHeadNumber()}
                             
                                 </div>
                                 <div style="display: flex;" id="bodyButtons">
@@ -62,167 +62,48 @@
             }
 
             //controller
-            function showHeadNumber1() {
-                currentIndex = (currentIndex +1)%4;
+            function showHeadNumber() {
+                currentIndex = (currentIndex +1) % 4;
+                // document.getElementById('headButtons').innerHTML = /*HTML*/ 
                 return `
-                <button onclick="updateView()">
+                <button onclick="showHeadNumber()">
                     ◀
                 </button>
+                
                 <div>
                     <img src="img/head${currentIndex}.png"/>
                 </div>
-                <button onclick="updateView()">
+                <button onclick="showHeadNumber()">
                     ▶
                 </button>
                 `;
             }
 
-            function showHeadNumber2() {
-                // document.getElementById('headButtons').innerHTML = /*HTML*/
-                currentIndex = (currentIndex +1)%4;
-                return `
-                <button onclick="showHeadNumber1()">
-                    ◀
-                </button>
-                <div>
-                    <img src="img/head${currentIndex}.png"/>
-                </div>
-                <button onclick="showHeadNumber3()">
-                    ▶
-                </button>
-                `;
-            }
-
-            // function showHeadNumber3() {
-            //     document.getElementById('headButtons').innerHTML = /*HTML*/`
-            //     <button onclick="showHeadNumber2()">
-            //         ◀
-            //     </button>
-            //     <div>
-            //         <img src="img/head3.png"/>
-            //     </div>
-            //     <button onclick="showHeadNumber4()">
-            //         ▶
-            //     </button>
-            //     `;
-            // }
-
-            function showHeadNumber4() {
-                document.getElementById('headButtons').innerHTML = /*HTML*/`
-                <button onclick="showHeadNumber3()">
-                    ◀
-                </button>
-                <div>
-                    <img src="img/head4.png"/>
-                </div>
-                <button onclick="showHeadNumber1()">
-                    ▶
-                </button>
-                `;
-            }
-
-            function showBodyNumber1() {
+            function showBodyNumber() {
+                currentIndex = (currentIndex +1) % 4;
                 document.getElementById('bodyButtons').innerHTML = /*HTML*/`
-                <button onclick="showBodyNumber4()">
+                <button onclick="showBodyNumber()">
                     ◀
                 </button>
                 <div>
-                    <img src="img/body1.png"/>
+                    <img src="img/body${currentIndex}.png"/>
                 </div>
-                <button onclick="showBodyNumber2()">
+                <button onclick="showBodyNumber()">
                     ▶
                 </button>
                 `;
             }
 
-            function showBodyNumber2() {
-                document.getElementById('bodyButtons').innerHTML = /*HTML*/`
-                <button onclick="showBodyNumber1()">
-                    ◀
-                </button>
-                <div>
-                    <img src="img/body2.png"/>
-                </div>
-                <button onclick="showBodyNumber3()">
-                    ▶
-                </button>
-                `;
-            }
-            function showBodyNumber3() {
-                document.getElementById('bodyButtons').innerHTML = /*HTML*/`
-                <button onclick="showBodyNumber2()">
-                    ◀
-                </button>
-                <div>
-                    <img src="img/body3.png"/>
-                </div>
-                <button onclick="showBodyNumber4()">
-                    ▶
-                </button>
-                `;
-            }
-            function showBodyNumber4() {
-                document.getElementById('bodyButtons').innerHTML = /*HTML*/`
-                <button onclick="showBodyNumber3()">
-                    ◀
-                </button>
-                <div>
-                    <img src="img/body4.png"/>
-                </div>
-                <button onclick="showBodyNumber1()">
-                    ▶
-                </button>
-                `;
-            }
-
-            function showlegsNumber1() {
+            function showlegsNumber() {
+                currentIndex = (currentIndex +1) % 4;
                 document.getElementById('legsButtons').innerHTML = /*HTML*/`
-                <button onclick="showlegsNumber4()">
+                <button onclick="showlegsNumber()">
                     ◀
                 </button>
                 <div>
-                    <img src="img/legs1.png"/>
+                    <img src="img/legs${currentIndex}.png"/>
                 </div>
-                <button onclick="showlegsNumber2()">
-                    ▶
-                </button>
-                `;
-            }
-            function showlegsNumber2() {
-                document.getElementById('legsButtons').innerHTML = /*HTML*/`
-                <button onclick="showlegsNumber1()">
-                    ◀
-                </button>
-                <div>
-                    <img src="img/legs2.png"/>
-                </div>
-                <button onclick="showlegsNumber3()">
-                    ▶
-                </button>
-                `;
-            }
-            function showlegsNumber3() {
-                document.getElementById('legsButtons').innerHTML = /*HTML*/`
-                <button onclick="showlegsNumber2()">
-                    ◀
-                </button>
-                <div>
-                    <img src="img/legs3.png"/>
-                </div>
-                <button onclick="showlegsNumber4()">
-                    ▶
-                </button>
-                `;
-            }
-            function showlegsNumber4() {
-                document.getElementById('legsButtons').innerHTML = /*HTML*/`
-                <button onclick="showlegsNumber3()">
-                    ◀
-                </button>
-                <div>
-                    <img src="img/legs4.png"/>
-                </div>
-                <button onclick="showlegsNumber1()">
+                <button onclick="showlegsNumber()">
                     ▶
                 </button>
                 `;
@@ -303,9 +184,9 @@
             function showBodyGame() {
                 blankAll();
                 document.getElementById('terjestagKropp').innerHTML= /*HTML*/``
-                showHeadNumber1();
-                showBodyNumber1();
-                showlegsNumber1();
+                showHeadNumber();
+                showBodyNumber();
+                showlegsNumber();
                 
             }
 
@@ -315,6 +196,7 @@
                 document.getElementById('terjestag2').innerHTML = ``
                 document.getElementById('terjestag3').innerHTML = ``
                 document.getElementById('terjestag4').innerHTML = ``
+                
             }
 
             function horisontalLayout(){
