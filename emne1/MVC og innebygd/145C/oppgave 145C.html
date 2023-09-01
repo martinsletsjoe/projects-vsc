@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="leilighet">
+    </div>
+        <script>
+            let currentLocation = 0;
+            Inngang();
+
+
+            function updateView() {
+                document.getElementById('leilighet').innerHTML =
+                Inngang()
+                ;
+            }
+
+            function Inngang(){
+                let currentLocation = 0;
+                document.getElementById('leilighet').innerHTML = /*HTML*/`
+                Du er i gangen
+                <div onclick='gåUt()'>
+                     Gå ut
+                </div>
+                <div onclick='stue()'>
+                    Gå inn til stua
+                </div>
+                <div onclick='soverom()'>
+                    Gå inn på soverommet
+                </div>
+                <div onclick='bad()'>
+                    Gå inn på badet
+                </div>
+                    `;
+            }
+            function gåUt(){
+                let currentLocation = 1;
+                document.getElementById('leilighet').innerHTML = /*HTML*/`
+                Du er utenfor
+                <button onclick='Inngang()'> Gå tilbake inn</button>
+                    `;
+            }
+            function stue(){
+                document.getElementById('leilighet').innerHTML = /*HTML*/`
+                Du er i stua
+                <button onclick='Inngang()'> Gå tilbake til gangen</button>
+                <button onclick='bad()'> Gå på badet</button>
+                    `;
+            }
+            function soverom(){
+                document.getElementById('leilighet').innerHTML = /*HTML*/`
+                Du er på soverommet
+                <button onclick='Inngang()'> Gå tilbake til gangen</button>
+                    `;
+            }
+            function bad(){
+                document.getElementById('leilighet').innerHTML = /*HTML*/`
+                Du er på badet
+                <button onclick='Inngang()'> Gå tilbake til gangen</button>
+                <button onclick='stue()'> Gå til stua</button>
+                    `;
+            }
+
+        </script>
+
+    </div>
+    
+</body>
+</html>
