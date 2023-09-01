@@ -47,7 +47,7 @@
                                 <div class="header color5" onclick="showBodyGame()">Hode, kropp og ben
                                 </div>
                                 <div style="display: flex;" id="headButtons">
-                                    ${showHeadNumber()}
+                                    
                             
                                 </div>
                                 <div style="display: flex;" id="bodyButtons">
@@ -64,8 +64,7 @@
             //controller
             function showHeadNumber() {
                 currentIndex = (currentIndex +1) % 4;
-                // document.getElementById('headButtons').innerHTML = /*HTML*/ 
-                return `
+                document.getElementById('headButtons').innerHTML = /*HTML*/ `
                 <button onclick="showHeadNumber()">
                     ◀
                 </button>
