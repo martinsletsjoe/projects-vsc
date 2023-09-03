@@ -48,10 +48,10 @@
         }
 
         function changeBody(change) {
+            bodyIndex = (bodyIndex + change + 4) % 4;
             // bodyIndex--;
             // if (bodyIndex == -1) bodyIndex = 3;
             // if (bodyIndex == 4) bodyIndex = 0;
-            bodyIndex = (bodyIndex + change + 4) % 4;
             updateView();
         }
 
