@@ -39,17 +39,15 @@
 
 <script type="text/javascript">
     //model
-    var resultBox;
+    var displayText = '';
 
-    window.onload = function() {
-        resultBox = resultBox = document.getElementById('resultBox');
-    }
+
 
     //view
 updateView();
     function updateView(){
         document.getElementById('app').innerHTML =`
-        <div id="resultBox" class="resultBox" id="screen"></div>
+        <div class="resultBox">${displayText}</div>
         
         <div class="firstInRow" onclick="addCharacter(7)">7</div>
         <div onclick="addCharacter(8)">8</div>
@@ -76,18 +74,20 @@ updateView();
 
 //controllers
     function addCharacter(x) {
-        resultBox.innerHTML += x;
+        displayText += x;
+        updateView();
     }
 
     function calculate() {
-        var calculation = resultBox
-            .innerHTML
+        var calculation = displayText
             .replace('×', '*')
             .replace('÷', '/');
-        resultBox.innerHTML = eval(calculation);
+        displayText = eval(calculation);
+        updateView();
     }
     function clearResult() {
-        resultBox.innerHTML = '';
+        displayText = '';
+        updateView();
     }
 </script>
 </body>
