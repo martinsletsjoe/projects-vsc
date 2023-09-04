@@ -34,23 +34,31 @@
 
 
 
-        updateView();
-        function updateView() {
-            document.getElementById('app').innerHTML = 
-                for (let i = 0; i < 9; i++) {
-                        createDiv();
+        
+
+    function updateView() {
+        let stigespillGrid = '';
+        let count = 90;
+        let countUp = false;
+
+        for (let row = 1; row <= 10; row++) {
+            for (let col = 1; col <= 9; col++) {
+                stigespillGrid += createDiv(count--);
             }
-
+            countUp = !countUp; // Toggle the counting direction after each row
+            if (!countUp) {
+                count -= 9; // Adjust the count to start counting down
+            }
         }
 
+        document.getElementById('app').innerHTML = stigespillGrid;
+    }
 
-        function createDiv(startValue, change) {
-            return `<div>x</div>`;
-        }
+    function createDiv(count) {
+        return `<div>${count}</div>`;
+    }
 
-
-
-
+    updateView();
 
 
     </script>

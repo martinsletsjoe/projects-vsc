@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #app {
+            display: grid;
+            grid-template-columns: repeat(9, 5rem);
+            grid-template-rows: repeat(10, 5rem);
+        }
+
+        #app>div {
+            border: 1px solid gray;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="app"></div>
+
+    <script>
+        document.getElementById('app').innerHTML =
+            createRow(90, -1)
+            + createRow(73, 1)
+            + createRow(72, -1)
+            + createRow(55, 1)
+            + createRow(54, -1)
+            + createRow(37, -1)
+            + createRow(36, 1)
+            + createRow(19, -1)
+            + createRow(18, -1)
+            + createRow(1, 1)
+        function createRow(startValue, change) {
+
+            return createDiv(startValue)
+                + createDiv(startValue + 1 * change)
+                + createDiv(startValue + 2 * change)
+                + createDiv(startValue + 3 * change)
+                + createDiv(startValue + 4 * change)
+                + createDiv(startValue + 5 * change)
+                + createDiv(startValue + 6 * change)
+                + createDiv(startValue + 7 * change)
+                + createDiv(startValue + 8 * change)
+
+
+
+        }
+
+        function createDiv(count) {
+            return `<div>${count}</div>`;
+
+        }
+
+
+
+    </script>
+
+
+
+
+
+
+</body>
+
+</html>
