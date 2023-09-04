@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+
+        #app {
+            display: grid;
+            grid-template-columns: repeat(9, 7rem);
+            grid-template-rows: repeat(10, 5rem);
+        }
+
+        #app>div {
+            border: 1px solid gray;
+            font-size: 300%;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+
+
+    <script>
+
+
+
+
+        updateView();
+        function updateView() {
+            document.getElementById('app').innerHTML = 
+                for (let i = 0; i < 9; i++) {
+                        createDiv();
+            }
+
+        }
+
+
+        function createDiv(startValue, change) {
+            return `<div>x</div>`;
+        }
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

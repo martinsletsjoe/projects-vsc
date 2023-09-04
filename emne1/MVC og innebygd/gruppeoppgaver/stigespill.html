@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            #app {
+                display: grid;
+                grid-template-columns: repeat (9, 100px);
+                grid-template-rows: repeat (10, 100px);
+            }
+
+            .square {
+                border: border 1px solid gray;
+                font-size: 140%;
+                width: 2rem;
+                height: 2rem;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="app"></div>
+
+
+        <script>
+            createRow(90, -1);
+            createRow(73, 1);
+            createRow(72, -1);
+            createRow(55, 1);
+            createRow(54, -1);
+            createRow(37, 1);
+            createRow(36, -1);
+            createRow(19, 1);
+            createRow(18, -1);
+            createRow(1, 1);
+            function createRow(startValue, change) {
+                document.getElementById('app').innerHTML += 
+                    createSquareContent(startValue + change * 0)
+                    + createSquareContent(startValue + change * 1)
+                    + createSquareContent(startValue + change * 2)
+                    + createSquareContent(startValue + change * 3)
+                    + createSquareContent(startValue + change * 4)
+                    + createSquareContent(startValue + change * 5)
+                    + createSquareContent(startValue + change * 6)
+                    + createSquareContent(startValue + change * 7)
+                    + createSquareContent(startValue + change * 8)
+                
+
+
+            }
+
+            function createSquareContent(index){
+                return /*HTML*/`
+                <div id="${startValue}" class="square">${index}</div>
+            `;
+            }
+
+
+
+
+
+
+
+        </script>
+    </body>
+</html>
