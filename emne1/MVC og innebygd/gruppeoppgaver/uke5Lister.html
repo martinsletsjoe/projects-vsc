@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+    <script>
+        //model
+        let colors = ['AliceBlue', 'AntiqueWhite', 'Aqua', 'Aquamarine', 'Azure','Beige', 'Bisque', 'Black', 'BlanchedAlmond', 'Blue', 'Blueviolet']
+
+
+        updateView();
+        function updateView() {
+
+            document.getElementById('app').innerHTML = /*HTML*/`
+            <h1>Farger</h1>
+            ${createColorsHtml()}
+            `;
+
+        }
+
+        function createColorsHtml() {
+            let colorsHtml = '';
+            for(let color of colors){
+                colorsHtml += /*HTML*/`
+                <div style="background-color: ${color}">
+                    ${color}
+                    <button onclick="deleteColor('${color}')">x</button>
+                </div>
+                `;
+            }
+            return colorsHtml;
+        }
+        //controller
+        function deleteColor(color) {
+            let index = colors.indexOf(color);
+            colors.splice(index, 1);
+            updateView();
+        }
+
+
+
+
+
+
+
+
+
+
+
+// let names = ['Per', 'Kristoffer', 'Pål', 'Espen'];
+        // function searchForNameStartingWith(array, letter){
+        //     let selectedNames = [];
+        //     for(let name of array){
+        //         if(name.startsWith(letter)){
+        //             selectedNames.push(name);
+        //         }
+        //     }
+        //     return selectedNames;
+        // }
+        // function searchForNameOfLength(array, length){
+        //     let selectedNames = [];
+        //     for(let name of array){
+        //         if(name.length == length){
+        //             selectedNames.push(name);
+        //         }
+        //     }
+        //     return selectedNames;
+        // }
+
+
+
+
+
+        // function doSomething(name){
+        //     for(let arg of arguments){
+        //         console.log(arg);
+        //     }
+        // }
+
+
+
+        // console.log(longestName)        
+
+        // let myNumber = [5];
+        // console.log(myNumber);
+        // doSomething(myNumber);
+        // console.log(myNumber);
+        // function doSomething(numbers) {
+        //     numbers[0]++;
+        // }
+
+
+
+        /*
+                let numbers = [1, 2, 3, 4, 5];
+        // let sum = 0;
+        let html= '';
+        for (let number of numbers) {
+            // sum += number;
+            html += `<li>${number}</li>`;
+        }
+        // console.log(sum)
+        document.body.innerHTML = html;
+        */
+        // for(let number of numbers) {
+        //     console.log(number);
+            
+        // }
+
+        // for(let i = 0; i < numbers.length; i++){
+        //     let number = numbers[i];
+        //     console.log(`numbers[${i}] = ${number}`);
+        // }
+
+
+
+
+
+
+    </script>
+
+
+
+
+</body>
+</html>
