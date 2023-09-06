@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+
+    <input type="text" id="words" placeholder="legg til ord">
+    <input type="number" id="digit" placeholder="legg til max lengde">
+
+    <button onclick="double()">double</button>
+    <div id="app"></div>
+
+
+    <script>
+        
+        let repeatedWords = '';
+        
+        function double() {
+            let wordInput = document.getElementById('words').value
+            let maxLen = parseInt(document.getElementById('digit').value)
+            for (i = 0; i < maxLen; i++) {
+                repeatedWords += wordInput
+            }
+            document.getElementById('app').innerHTML += repeatedWords;
+        }
+
+    </script>
+
+
+
+</body>
+
+</html>

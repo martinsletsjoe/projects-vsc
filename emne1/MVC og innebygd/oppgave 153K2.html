@@ -13,13 +13,12 @@
     }
 </style>
 <body>
-
     <div id="content">
     </div>
     
     <script>
         // model
-        let numbers = [7, 3, 1, 5, 8, 2];
+        let numbers = [7, 3, 1, 5, 8];
         let chosenBar; // Variabel for hvilken stolpe som er valgt
         let inputValue; // Variabel for hva som er skrevet i input-feltet
     
@@ -29,7 +28,6 @@
             let svgInnerHtml = '';
             for (let i = 0; i < numbers.length; i++) {
                 svgInnerHtml += createBar(numbers[i], i + 1);
-                
             }
             document.getElementById('content').innerHTML = /*HTML*/`
                 <svg id="chart" width="500" viewBox="0 0 80 60">
@@ -42,12 +40,10 @@
                 <button>Legg til stolpe</button>
                 <button disabled>Endre valgt stolpe</button><br />
                 <button disabled>Fjerne valgt stolpe</button>
-                
             `;
         }
     
         function createBar(number, barNo) {
-            
             const width = 8;
             const spacing = 2;
             let x = (barNo - 1) * (width + spacing);
@@ -56,8 +52,7 @@
             let color = calcColor(1, 10, barNo);
             return `<rect width="${width}" height="${height}"
                                 x="${x}" y="${y}" fill="${color}"
-                                onclick="targetBar(event, ${barNo})"></rect>`;
-                                
+                                onclick="targetBar(${barNo})"></rect>`;
         }
     
         function calcColor(min, max, val) {
@@ -66,18 +61,13 @@
             var colString = "hsl(" + ((curPercent * (maxHue - minHue)) + minHue) + ",100%,50%)";
             return colString;
         }
-
-        
+    
         // controller (ingenting her ennå)
-        function targetBar(event, barNo){
-            event.target.classList.toggle("clicked");
-
-            
-            // alert(`clicked on pillar ${barNo}`)
+        function targetBar(barNo){
+            chosenBar = barNo;
+            updateView();
+            alert(`clicked on pillar ${barNo}`);
         }
-
-
-
     </script>
     
     <!-- numbers.push(200)

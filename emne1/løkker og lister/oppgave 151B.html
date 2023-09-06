@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: black;
+        color: white;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <button onclick="updateView()">Trykk</button>
+    <input type="text" id="startInput" placeholder="start-verdi"></br>
+    <input type="text" id="stopInput" placeholder="slutt-verdi"></br>
+    <input type="text" id="change" placeholder="endring">
+    <div id="app"></div>
+
+    <script>
+
+        let startValue = parseInt(document.getElementById('startInput').value);
+        let stopValue = parseInt(document.getElementById('stopInput').value);
+        let change = parseInt(document.getElementById('change').value);
+        let numberList = []
+
+        function updateView() {
+            startValue = parseInt(document.getElementById('startInput').value);
+            stopValue = parseInt(document.getElementById('stopInput').value);
+            change = parseInt(document.getElementById('change').value);
+
+
+            document.getElementById('app').innerHTML += `<div>${digitCounter()}</div>`;
+        }
+
+        function digitCounter() {
+            for (i = startValue; i <= (stopValue); i += change) {
+                numberList.push(i)
+            }
+            return numberList;
+        }
+
+
+    </script>
+</body>
+
+</html>
