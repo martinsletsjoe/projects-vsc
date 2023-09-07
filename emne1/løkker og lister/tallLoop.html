@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    
+
+    <script>
+        //model
+        let count = 0;
+
+        //view
+        function updateView(){
+            document.getElementById('app').innerHTML +=
+            `<button onclick="displayCount()">Click</button>
+            <div id="result"></div>
+            `;
+            
+        }
+        //controller
+        function displayCount(){
+            let result = "";
+
+        for(i = 0; i <= 100; i++){
+            result += i + " ";
+            
+        }   document.getElementById('result').textContent = "numbers: " + result;
+        }
+
+
+        updateView()
+    </script>
+
+
+
+
+</body>
+</html>

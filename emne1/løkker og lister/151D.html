@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+        #userInputText {
+            width: 22vh;
+            height: 3vh;
+            font-size: 100%;
+        }
+        #letterCount {
+            width: 25vh;
+            height: 3vh;
+            font-size: 100%;
+        }
+    </style>
+</head>
+<body>
+<div id="app"></div>
+
+
+<script>
+
+
+
+
+
+    function updateView(){
+        document.getElementById('app').innerHTML = /*HTML*/`
+            <input type="text" id="userInputText" placeholder="Skriv her">
+            <input type="text" id="letterCount" placeholder="Hvilket bokstav vil du lete etter?">
+            <button onclick="wantedLetterAmount()">Click</button>
+
+            <p id="result"></p> <!-- Add a paragraph element for displaying the result -->
+
+        `;
+    }
+    
+    function wantedLetterAmount() {
+        let textInput = document.getElementById('userInputText').value.toLowerCase();
+        let wantedLetter = document.getElementById('letterCount').value.toLowerCase();
+        let count = 0;
+
+
+        for(let i = 0; i <textInput.length; i++){
+            //check if the character is at that position
+            if(textInput.charAt(i) == wantedLetter){
+                count++;
+            }
+            const result = count;
+            document.getElementById('result').textContent = `${wantedLetter} ble funnet i '${textInput}': ${result} ganger`;
+        }
+        
+    }
+
+
+    updateView();
+</script>
+
+
+    
+</body>
+</html>
