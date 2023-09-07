@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <pre id="output"></pre>
+    <script>
+        function writeHash() {
+            document.getElementById('output').innerText += '#';
+        }
+
+        function writeSpace() {
+            document.getElementById('output').innerText += ' ';
+        }
+
+        function writeLineBreak() {
+            document.getElementById('output').innerText += '\n';
+        }
+        topHalfX();
+        bottomHalfX();
+
+        function topHalfX() {
+            for (let i = 0; i < 14; i++) {
+                if (i < 1) {
+                    writeHash()
+                }
+                else if (i < 13) {
+                    writeSpace()
+                }
+                else writeHash();
+            } writeLineBreak();
+            for (let i = 0; i < 13; i++) {
+                if (i < 1) {
+                    writeSpace()
+                } else if (i < 3) {
+                    writeHash();
+                } else if (i < 11) {
+                    writeSpace();
+                } else writeHash();
+            } writeLineBreak();
+            for (let i = 0; i < 12; i++) {
+                if (i < 2) {
+                    writeSpace()
+                } else if (i < 5) {
+                    writeHash();
+                } else if (i < 9) {
+                    writeSpace();
+                } else (writeHash())
+            } writeLineBreak();
+            for (let i = 0; i < 11; i++) {
+                if (i < 3) {
+                    writeSpace()
+                } else if (i < 11) {
+                    writeHash()
+                }
+            } writeLineBreak()
+        }
+        function bottomHalfX() {
+            for (let i = 0; i < 11; i++) {
+                if (i < 3) {
+                    writeSpace()
+                } else if (i < 11) {
+                    writeHash()
+                }
+            } writeLineBreak();
+            for (let i = 0; i < 12; i++) {
+                if (i < 2) {
+                    writeSpace()
+                } else if (i < 5) {
+                    writeHash();
+                } else if (i < 9) {
+                    writeSpace();
+                } else (writeHash())
+            } writeLineBreak();
+            for (let i = 0; i < 13; i++) {
+                if (i < 1) {
+                    writeSpace()
+                } else if (i < 3) {
+                    writeHash();
+                } else if (i < 11) {
+                    writeSpace();
+                } else writeHash();
+            } writeLineBreak();
+            for (let i = 0; i < 14; i++) {
+                if (i < 1) {
+                    writeHash()
+                }
+                else if (i < 13) {
+                    writeSpace()
+                }
+                else writeHash();
+            }
+        }
+
+
+    </script>
+
+
+</body>
+
+</html>
