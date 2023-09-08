@@ -35,13 +35,16 @@ updateView();
             let words = userInput.split(/\s+/)
             
             let longestWord = "";
+            let textInputLength = "";
 
             for(let i = 0; i < words.length; i++){
                 if(words[i].length > longestWord.length){
                     longestWord = words[i]
-                }
+                    textInputLength = userInput.replaceAll(" ", "").length};
             }
-            document.getElementById('result').innerHTML = longestWord;
+            document.getElementById('result').innerHTML = `
+            the longest word is ${longestWord} and there were ${textInputLength}
+            letters given total.`;
         }
 
 
