@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="dinId"></div>
+
+
+    <script>
+        let tall = 1;
+        updateView();
+        function updateView() {
+            let triple = "";
+            if(tall >10){
+                triple = `<button onclick="triple()">triple</button>`
+            }
+            document.getElementById('dinId').innerHTML = `
+                <h1>${tall}</h1>
+                <button onclick="addOne()">Øke med én</button>
+                <button onclick="double()">Doble</button>
+                ${triple}
+    `;
+        }
+
+        function addOne() {
+            tall++;
+            updateView();
+        }
+
+        function double() {
+            tall *= 2
+            updateView();
+        }
+
+        function triple() {
+            tall *= 3
+            updateView();
+        }
+
+
+
+
+    </script>
+
+</body>
+
+</html>

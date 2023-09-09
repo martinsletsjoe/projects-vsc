@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+
+
+
+    <script>
+        updateView();
+
+        function updateView() {
+            document.getElementById('app').innerHTML = /*HTML*/`
+            ${temperatureConversion(100, 'f')}
+            `;
+        }
+
+        function temperatureConversion(temperature, type) {
+            convertion = 0;
+            if (type == 'f') {
+                convertion = ((temperature - 32) * 5 / 9);
+                return `${convertion} degrees celcius`;
+            } else if(type == 'c') {
+                convertion = ((temperature * 9 / 5 + 32));
+                return `${convertion} degrees fahrenheit`;
+            }
+        }
+
+
+
+        // function checkOut(name, price, amount){
+        //     sum = price * amount;
+        //     return `${name} ${price} = ${sum}`;
+
+        // }
+    </script>
+
+
+
+
+
+</body>
+
+</html>

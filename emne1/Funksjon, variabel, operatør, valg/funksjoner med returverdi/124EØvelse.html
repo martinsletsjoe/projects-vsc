@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* body {
+            background-color: black;
+            color: white;
+        } */
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script>
+        updateView();
+        function updateView(){
+            document.getElementById('app').innerHTML = `
+            ${createDiv('hei', 'yellow', 'pink')}
+            ${createDiv('Jon Øvind Eikornrød trenger en volvo 240 med laksetrapp', 'green', 'gold')}
+            `;
+        }
+
+
+        function createDiv(text, foregroundColor, backgroundColor) {
+            let colorfulDivs = `<div style="background-color: ${backgroundColor}; color: ${foregroundColor}">${text}</div>`
+            if (backgroundColor === 'undefined' || backgroundColor == ''
+            ||foregroundColor === 'undefined' || foregroundColor == ''){
+            return;
+        }else return colorfulDivs;
+
+        }
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div.menu {
+        float: left;
+        height: 100%;
+        padding-right: 4px;
+    }
+
+    div.screen {
+        border: 1px solid gray;
+        float: left;
+        height: 200px;
+        width: 170px;
+        margin-left: 20px;
+        background-color: rgb(250, 250, 250);
+        color: black;
+        padding: 0px 4px;
+    }
+
+    span {
+        color: rgb(137, 24, 38);
+        font-weight: bolder;
+    }
+    button {
+        background-color: rgb(137, 24, 38);
+        color: rgb(250, 250, 250);
+    }
+        button.fixed {
+            width: 70px;
+            margin: 2px 4px;
+        }
+</style>
+
+<body>
+    <div class="screen">
+        <span>☰ Vinlotterix</span>
+        <input type="textbox" checked> Per &nbsp;&nbsp;&nbsp;&nbsp;☒<br>
+        <input type="textbox" checked> Pål &nbsp;&nbsp;&nbsp;&nbsp;☒<br>
+        <input type="textbox" checked> Espen ☒<br>
+        <input type="textbox" checked> Ole &nbsp;&nbsp;&nbsp;&nbsp;☒<br>
+        <button>Trekk!</button><input type="text" size="1" value="1">
+        <button>▲</button>
+        <button>▼</button>
+    </div>
+
+    <div class="screen">
+        <span>☰ Vinlotterix</span></br>
+        <small>onsdag 17.10.420</small></br>
+        <b>Vinneren er MARTIN</b></br>
+        <small>Trukket fra totalt 3 personer: Per, pål og Ole</small>
+    </div>
+
+    <div class="screen">
+        <div class="menu">
+            <button class="fixed">Personer</button><br />
+            <button class="fixed">Vinnere</button><br />
+            <button class="fixed">Om</button><br />
+            <button class="fixed">Exit</button><br />
+        </div>
+        <div> <span>☰ Vinlotteri</span><br />
+            <small>onsdag 17.10.18</small><br />
+            <b>Vinneren er</b><br />
+            <small>
+                Trukket fra total<br />
+                Per, Pål og Ole
+            </small>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
