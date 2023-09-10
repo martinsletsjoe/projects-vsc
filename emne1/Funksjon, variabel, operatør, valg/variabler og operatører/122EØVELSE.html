@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script>
+        //model
+        let fontSize = 12;
+        let redValue = 125;
+        let greenValue = 125;
+        let blueValue = 125;
+
+        updateView();
+        //view
+        function updateView() {
+            document.getElementById('app').innerHTML = /*HTML*/`
+            
+            hei hallo
+            
+            <button onclick="incrementFontSize()">Større</button>
+            <button onclick="decrementFontSize()">Mindre</button></br>
+            <button onclick="increaseRed()">More red</button>
+            <button onclick="decreaseRed()">less red</button></br>
+            <button onclick="increaseGreen()">More green</button>
+            <button onclick="decreaseGreen()">less green</button></br>
+            <button onclick="increaseBlue()">More blue</button>
+            <button onclick="decreaseBlue()">less blue</button></br>
+
+            <select id="userFontChoice" onchange="selectFontFamily(this.value)">
+                <option>Arial</option>
+                <option>Verdana</option>
+                <option>Tahoma</option>
+                <option>Trebuchet MS</option>
+                <option>Times New Roman</option>
+                <option>Georgia</option>
+                <option>Garamond</option>
+                <option>Courier New</option>
+                <option>Brush Script MT</option>
+            </select>
+            `;
+        }
+        //controller
+        function incrementFontSize() {
+            fontSize++;
+            document.getElementById('app').style.fontSize = `${fontSize}pt`;
+            
+        }
+        function decrementFontSize() {
+            fontSize--;
+            document.getElementById('app').style.fontSize = `${fontSize}pt`;
+        }
+
+        function selectFontFamily(){
+            let fontChoice = document.getElementById('userFontChoice').value
+            document.getElementById('app').style.fontFamily = `${fontChoice}`;
+        }
+
+        function increaseRed(){
+            redValue += 5;
+            document.getElementById('app').style.backgroundColor = `rgb(${redValue},${greenValue},${blueValue})`;
+        }
+        function decreaseRed(){
+            redValue -= 5;
+            document.getElementById('app').style.backgroundColor = `rgb(${redValue},${greenValue},${blueValue})`;
+        }
+        function increaseGreen(){
+            greenValue += 5;
+            document.getElementById('app').style.backgroundColor = `rgb(${redValue},${greenValue},${blueValue})`;
+        }
+        function decreaseGreen(){
+            greenValue -= 5;
+            document.getElementById('app').style.backgroundColor = `rgb(${redValue},${greenValue},${blueValue})`;
+        }
+        function increaseBlue(){
+            blueValue += 5;
+            document.getElementById('app').style.backgroundColor = `rgb(${redValue},${greenValue},${blueValue})`;
+        }
+        function decreaseBlue(){
+            blueValue -= 5;
+            document.getElementById('app').style.backgroundColor = `rgb(${redValue},${greenValue},${blueValue})`;
+        }
+    </script>
+
+</body>
+
+</html>

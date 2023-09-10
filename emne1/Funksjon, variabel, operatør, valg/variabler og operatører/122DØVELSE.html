@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script>
+        //model
+        let fontSize = 12;
+
+        updateView();
+        //view
+        function updateView() {
+            document.getElementById('app').innerHTML = /*HTML*/`
+            
+            hei hallo
+            
+            <button onclick="incrementFontSize()">Større</button>
+            <button onclick="decrementFontSize()">Mindre</button>
+
+            <select id="userFontChoice" onchange="selectFontFamily(this.value)">
+                <option>Arial</option>
+                <option>Verdana</option>
+                <option>Tahoma</option>
+                <option>Trebuchet MS</option>
+                <option>Times New Roman</option>
+                <option>Georgia</option>
+                <option>Garamond</option>
+                <option>Courier New</option>
+                <option>Brush Script MT</option>
+            </select>
+            `;
+        }
+        //controller
+        function incrementFontSize() {
+            fontSize++;
+            document.getElementById('app').style.fontSize = `${fontSize}pt`;
+            
+        }
+        function decrementFontSize() {
+            fontSize--;
+            document.getElementById('app').style.fontSize = `${fontSize}pt`;
+        }
+
+        function selectFontFamily(){
+            let fontChoice = document.getElementById('userFontChoice').value
+            document.getElementById('app').style.fontFamily = `${fontChoice}`;
+        }
+
+    </script>
+
+</body>
+
+</html>

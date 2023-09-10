@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+
+    <script>
+        //model
+        let fontSize = 12;
+
+updateView();
+        //view
+        function updateView(){
+            document.getElementById('app').innerHTML = /*HTML*/`
+            
+            hei hallo
+            
+            <button onclick="incrementFontSize()">Større</button>
+            <button onclick="decrementFontSize()">Mindre</button>
+            
+            `;
+        }
+        //controller
+        function incrementFontSize(){
+            fontSize ++;
+            document.getElementById('app').style.fontSize = `${fontSize}pt`;
+        }
+        function decrementFontSize(){
+            fontSize --;
+            document.getElementById('app').style.fontSize = `${fontSize}pt`;
+        }
+
+    </script>
+    
+</body>
+</html>
