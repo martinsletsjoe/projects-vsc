@@ -1,27 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
         .clicked {
-          stroke: black;
-          stroke-width: 1px;
+            stroke: black;
+            stroke-width: 1px;
         }
-      </style>
+    </style>
 </head>
+
 <body>
     <div id="content">
     </div>
-    
+
     <script>
         // model
         let numbers = [7, 3, 1, 5, 4];
         let chosenBar; // Variabel for hvilken stolpe som er valgt
         let inputValue; // Variabel for hva som er skrevet i input-feltet
-        let chosenBarBorder;
-    
+
         // view
         updateView();
         function updateView() {
@@ -29,11 +30,15 @@
             for (let i = 0; i < numbers.length; i++) {
                 svgInnerHtml += createBar(numbers[i], i + 1);
             }
+            let chosenBarText = "";
+            if (chosenBar != null){
+                chosenBarText == chosenBar;
+            }
             document.getElementById('content').innerHTML = /*HTML*/`
                 <svg id="chart" width="500" viewBox="0 0 80 60">
                     ${svgInnerHtml}
                 </svg><br/>
-                Valgt stolpe: <i>${chosenBar}</i>
+                Valgt stolpe: <i>${chosenBarText}</i>
                 <br />
                 Verdi:
                 <input id='userValueInput' type="number" min="1" max="10" oninput="inputValue = this.value" />
@@ -41,9 +46,9 @@
                 <button disabled>Endre valgt stolpe</button><br />
                 <button onclick="removeSelectedBar(${chosenBar})">Fjerne valgt stolpe</button>
             `
-            
+
         }
-        
+
         function createBar(number, barNo) {
             const width = 8;
             const spacing = 2;
@@ -51,36 +56,41 @@
             let height = number * 10;
             let y = 60 - height;
             let color = calcColor(1, 10, barNo);
-            if(chosenBar != undefined){
-                chosenBarBorder = stroke='black'
+            let chosenBarBorder = "";
+            if (chosenBar == barNo) {
+                chosenBarBorder = stroke = 'black'
             }
             return `<rect width="${width}" height="${height}"
                                 x="${x}" y="${y}" fill="${color}" stroke='${chosenBarBorder}' onclick="selectBar(${barNo})"></rect>`;
         }
-    
+
         function calcColor(min, max, val) {
             var minHue = 240, maxHue = 0;
             var curPercent = (val - min) / (max - min);
             var colString = "hsl(" + ((curPercent * (maxHue - minHue)) + minHue) + ",100%,50%)";
             return colString;
         }
-    
+
         // controller
-        function selectBar(barNo){
-            chosenBar = barNo;
+        function selectBar(barNo) {
+            if (chosenBar == barNo) {
+                chosenBar = null;
+            } else {
+                chosenBar = barNo;
+            }
             updateView();
         }
 
-        function createNewBar(){
-            userInput = document.getElementById('userValueInput').value;
-            numbers.push(userInput);
+        function createNewBar() {
+            numbers.push(inputValue);
             updateView();
         }
-        function removeSelectedBar(chosenBar){
-            numbers.slice(chosenBar,1);
+        function removeSelectedBar(chosenBar) {
+            numbers.slice(chosenBar, 1);
             updateView();
         }
     </script>
-    
+
 </body>
+
 </html>
