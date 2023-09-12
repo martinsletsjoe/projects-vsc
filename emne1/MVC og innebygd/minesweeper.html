@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #app {
+            display: grid;
+            grid-template-columns: repeat(4, 5rem);
+            grid-template-rows: repeat(4, 5rem);
+
+        }
+
+        #app>div {
+            border: 1px solid gray;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+
+
+    <script>
+        // model
+        let cells = [
+            1, 11, 11, 10,
+            11, 19, 11, 10,
+            11, 11, 11, 10,
+            10, 10, 10, 10,
+        ];
+
+        //view
+        updateView();
+        function updateView() {
+            let html = '';
+            for (let cell of cells) {
+                let cellContent = cell;
+                cellContent = divButton(cell)
+                // cellContent = cell >= 10 ? '<button>åpne</button>': cell;
+                // if (cell >= 10) {
+                //     cellContent = '<button>åpne</button>';
+                // }
+                html += `<div onclick="openDiv(${cell})">${cellContent}</div>`;
+            }
+            document.getElementById('app').innerHTML = html;
+        }
+
+        /*
+                    let cellContent = cell;
+                if(cell >= 10){
+                    cellContent = '<button>åpne</button>';
+                }
+    
+                */
+
+        function divButton(cell){
+            if(cell >= 10){
+                return 'åpne'
+            }else return cell;
+        }
+        function openDiv(cell){
+            //Reduser cell verdi med 10
+            let clickedElement = event.target;
+
+            clickedElement.innerHTML = cell - 10;
+            
+        }
+
+    </script>
+
+
+</body>
+
+</html>

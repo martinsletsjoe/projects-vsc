@@ -1,6 +1,10 @@
 function buyCoke() {
     cokesInStore--;
     isCokeInDelivery = true;
+    // if(coinsInserted[index] >= 25){
+    //     coinsInserted -= 25;
+    // }
+
     updateView();
 }
 
@@ -22,4 +26,10 @@ function returnCoins() {
     }
     coinsInserted = [0, 0, 0, 0];
     updateView();
+}
+function takeCoke(){
+    if(isCokeInDelivery != true){
+    return true}
+    
+    updateView()
 }
