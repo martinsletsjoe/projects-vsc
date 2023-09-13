@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+        #app {
+            display: grid;
+            grid-template-columns: repeat(2, 15rem);
+            grid-template-rows: repeat(2, 15rem);
+            font-size: 200%;
+            margin: 50px;  
+        }
+        #app > div {
+            border: 1px solid gray;
+            text-align: center;
+            padding: 35%;
+        }
+
+        .buttons {
+            display: flex;
+            flex-direction: row;
+        }
+
+        button {
+            display: flex;
+            flex-direction: row;
+            width: 10rem;
+            height: 3rem;
+            background-color: rgb(53, 53, 53);
+            border-radius: 5px;
+            border: none;
+            gap: 5rem;
+        }
+
+        button:hover {
+            border: white 2px solid;
+        }
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+
+    <script>
+        let imagePosition = 0;
+
+updateView()
+        function updateView(){
+            let divSquares= ''
+            for(i = 0; i < 4; i++){
+                divSquares += showImage(i)
+            }
+            document.getElementById('app').innerHTML = `${divSquares}
+            <button onclick="goUp()">opp</button>
+            <button onclick="goRight()">høyre</button>
+            <button onclick="goDown()">ned</button>
+            <button onclick="goLeft()">venstre</button>
+            </div>
+            
+            
+            
+            `;
+         
+        }
+        function showImage(index) {
+            return `<div>${imagePosition == index ? 'x': ''}</div> `
+        }
+        function goDown() {
+            if (imagePosition >= 2){
+                return
+            }else imagePosition += 2;
+            
+            updateView();
+        }
+        function goUp() {
+            if (imagePosition <= 0){
+                return
+            }else imagePosition -= 2;
+            updateView();
+        }
+        function goRight(){
+            if (imagePosition >= 3){
+                return
+            }else imagePosition ++;
+            updateView();
+        }
+        function goLeft(){
+            if (imagePosition <= 0){
+                return
+            }else imagePosition --;
+            updateView();
+        }
+
+
+
+
+
+
+    </script>
+</body>
+</html>
