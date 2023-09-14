@@ -10,6 +10,9 @@
             background-color: black;
             color: white;
         }
+        #inputLetter {
+            margin-top: 10px;
+        }
     </style>
 </head>
 
@@ -17,15 +20,27 @@
 
     <div id="app"></div>
 
-    <input type="text" id="testBokstav">
+    
 
     <script>
+        //model
+        let wantedWord = '';
+        let wantedLetter = '';
 
-
+        //view
         updateView();
         function updateView() {
-            document.getElementById('app').innerHTML =
-            '<input'
+            document.getElementById('app').innerHTML =/*HTML*/ `
+            <h1>Hangman</h1>
+            <input type="text" id="inputWord"> <button onclick="getWord()">Add word</button></br>
+            <input type="text" id="inputLetter"> <button>Add letter</button>
+
+            
+            `
+            
+            wantedLetter = document.getElementById('inputLetter').value
+            
+            
             ;
         }
 
@@ -44,6 +59,15 @@
                 ;
         }
 
+        function getWord(){
+            wantedWord = document.getElementById('inputWord').value
+            let wordLength = wantedWord.length
+
+
+
+        }
+
+        
     </script>
 </body>
 

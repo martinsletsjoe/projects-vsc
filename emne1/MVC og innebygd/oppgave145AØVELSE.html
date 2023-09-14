@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    
+
     <style>
         body {
             background-color: black;
             color: white;
         }
+
         #app {
             display: grid;
             grid-template-columns: repeat(2, 15rem);
             grid-template-rows: repeat(2, 15rem);
             font-size: 200%;
-            margin: 50px;  
+            margin: 50px;
         }
-        #app > div {
+
+        #app>div {
             border: 1px solid gray;
             text-align: center;
             padding: 35%;
@@ -44,64 +47,45 @@
         }
     </style>
 </head>
+
 <body>
     <div id="app"></div>
 
     <script>
         let imagePosition = 0;
 
-updateView()
-        function updateView(){
-            let divSquares= ''
-            for(i = 0; i < 4; i++){
-                divSquares += showImage(i)
+        updateView()
+        function updateView() {
+            let divSquares = ''
+            for (i = 0; i < 4; i++) {
+                divSquares += `<div>${showImage(i)}</div>`;
             }
             document.getElementById('app').innerHTML = `${divSquares}
-            <button onclick="goUp()">opp</button>
-            <button onclick="goRight()">høyre</button>
-            <button onclick="goDown()">ned</button>
-            <button onclick="goLeft()">venstre</button>
+            <button onclick="changePositionNegative(${1},${2})">opp</button>
+            <button onclick="changePositionPositive(${3}, ${1})">høyre</button>
+            <button onclick="changePositionPositive(${2},${2})">ned</button>
+            <button onclick="changePositionNegative(${0},${1})">venstre</button>
             </div>
-            
-            
-            
             `;
-         
+
         }
         function showImage(index) {
-            return `<div>${imagePosition == index ? 'x': ''}</div> `
+            return imagePosition == index ? 'x' : '';
+             
         }
-        function goDown() {
-            if (imagePosition >= 2){
+        function changePositionNegative(borderNumber, addPos){
+            if (imagePosition <= borderNumber) {
                 return
-            }else imagePosition += 2;
-            
+            } else {imagePosition -= addPos}
             updateView();
         }
-        function goUp() {
-            if (imagePosition <= 0){
+        function changePositionPositive(borderNumber, addPos){
+            if (imagePosition >= borderNumber) {
                 return
-            }else imagePosition -= 2;
+            } else {imagePosition += addPos}
             updateView();
         }
-        function goRight(){
-            if (imagePosition >= 3){
-                return
-            }else imagePosition ++;
-            updateView();
-        }
-        function goLeft(){
-            if (imagePosition <= 0){
-                return
-            }else imagePosition --;
-            updateView();
-        }
-
-
-
-
-
-
     </script>
 </body>
+
 </html>
