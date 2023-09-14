@@ -1,0 +1,27 @@
+table {
+    border-collapse: collapse;
+    text-align: right;
+
+
+}
+
+th, td {
+    border: 1px solid gray;
+    padding: 1vh;
+}
+td {
+    text-align: right;
+}
+td:first-child {
+    text-align: left;
+}
+
+tr:first-child {
+    background-color: darkblue;
+    color: white;
+    font-size: large;
+}
+
+tr:nth-child(even) {
+    background-color: slategrey;
+}
