@@ -10,6 +10,7 @@
             background-color: black;
             color: white;
         }
+
         #inputLetter {
             margin-top: 10px;
         }
@@ -17,36 +18,41 @@
 </head>
 
 <body>
-
     <div id="app"></div>
-
-    
-
     <script>
         //model
-        let wantedWord = '';
-        let wantedLetter = '';
 
+        let wantedWordList = ['HEMMELIG', 'Stian', 'Eirik', 'Aron', 'Martin', 'Lars', 'Simen', 'Petter'];
+        let letterInput = '';
+        let wantedWord = wantedWordList[Math.floor(Math.random() * wantedWordList.length)].toLocaleLowerCase();
+        let guessedWord;
+        guessedWord = getGuessedWordLength();
         //view
         updateView();
         function updateView() {
             document.getElementById('app').innerHTML =/*HTML*/ `
-            <h1>Hangman</h1>
-            <input type="text" id="inputWord"> <button onclick="getWord()">Add word</button></br>
-            <input type="text" id="inputLetter"> <button>Add letter</button>
-
-            
-            `
-            
-            wantedLetter = document.getElementById('inputLetter').value
-            
-            
-            ;
+                <h1>Hangman</h1>
+                <pre style="font-size: 300%">${guessedWord}</pre>
+                <input type="text" oninput="letterInput=this.value" value="${letterInput}"/>
+                <button onclick="guessWord()">Guess letter</button>            
+            `;
         }
 
+        // controller
+        function guessWord() {
+            letterInput = letterInput.toLocaleLowerCase();
+            if (letterInput.length > 1) {
+                return
+            } else if (letterInput.length === 1) {
+                guessedWord = evaluateHangman(wantedWord, guessedWord, letterInput);
+                updateView();
+                if (guessedWord === wantedWord) {
+                    document.getElementById('app').innerHTML += `<div>Winner</div>`
+                }
+            }
 
 
-
+        }
 
         function evaluateHangman(secretText, currentText, guessedLetter) {
             const index = secretText.indexOf(guessedLetter);
@@ -56,18 +62,20 @@
             const secretTextAfterGuessedLetter = secretText.substring(index + 1);
             return currentTextBeforeGuessedLetter + guessedLetter
                 + evaluateHangman(secretTextAfterGuessedLetter, currentTextAfterGuessedLetter, guessedLetter);
-                ;
+            ;
         }
 
-        function getWord(){
-            wantedWord = document.getElementById('inputWord').value
-            let wordLength = wantedWord.length
-
-
-
+        function getGuessedWordLength() {
+            guessedWord = '';
+            for (i = 0; i < wantedWord.length; i++) {
+                guessedWord += '_';
+            } 
+            return guessedWord
         }
+    </script>
 
-        
+
+
     </script>
 </body>
 
