@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="app"></div>
+    <script>
+        // model
+        let newWord = '';
+        let inputText = '';
+        let maxNumber = '';
+
+        // view
+        updateView()
+        function updateView() {
+            document.getElementById('app').innerHTML = /*HTML*/`
+            <h1>Increase text length</h1>
+            <input type="text"  id="textId" value="${inputText}" onchange="inputText=this.value";>
+            <input type="number" id="number" value="${maxNumber}" onchange="maxNumber=this.value";>
+            <button onclick="increaseLength()"> Gjenta</button>
+            <div>${newWord}</div>
+            `;
+            
+        }
+
+        // controller
+        function increaseLength() {
+            newWord = '';
+            for (let i = 0; i < maxNumber; i++) {
+                newWord += inputText;
+            }
+            updateView();
+        }
+
+
+
+
+
+    </script>
+</body>
+
+</html>
