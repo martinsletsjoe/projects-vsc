@@ -42,24 +42,24 @@
             style.backgroundColor = backColor;
             style.color = foreColor;
         }
-        function addNewDiv() {
-            const newDiv = document.createElement('div');
-            newDiv.textContent = 'Dette er en div';
-            newDiv.style.backgroundColor = backColor;
-            newDiv.style.color = foreColor;
+        // function addNewDiv() {
+        //     const newDiv = document.createElement('div');
+        //     newDiv.textContent = 'Dette er en div';
+        //     newDiv.style.backgroundColor = backColor;
+        //     newDiv.style.color = foreColor;
 
-            const appContainer = document.getElementById('app');
-            appContainer.appendChild(newDiv);
-        }
+        //     const appContainer = document.getElementById('app');
+        //     appContainer.appendChild(newDiv);
+        // }
 
         //controller
         function updateBackgroundColor(color) {
             backColor = color;
-            // updateView();
+            updateView();
         }
         function updateForegroundColor(color) {
             foreColor = color;
-            // updateView();
+            updateView();
         }
         
 

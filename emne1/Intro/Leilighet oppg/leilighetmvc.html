@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+
+        button {
+            margin-bottom: 1vh;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script>
+        // model
+        let userPosition = "You're standing outside";
+        let outsideButton = true;
+        let hallwayButton = false;
+        let livingRoomButton = true;
+        let bedroomButton = true;
+
+        // view
+        function updateView() {
+            document.getElementById('app').innerHTML = /*HTML*/`
+            <h1> ${userPosition} </h1></br>
+            <button onclick="outside()"${outsideButton ? 'disabled' : ''}>outside</button></br>
+            <button onclick="hallway()"${hallwayButton ? 'disabled' : ''}>Hallway</button></br>
+            <button onclick="livingRoom()" ${livingRoomButton ? 'disabled' : ''}>livingRoom</button></br>
+            <button onclick="bedroom()" ${bedroomButton ? 'disabled' : ''}>bedroom</button>
+            
+            
+            `;
+
+        }
+
+        function outside() {
+            userPosition = "You're standing outside"
+            if (userPosition == "You're standing outside") {
+                outsideButton = true;
+                hallwayButton = false;
+                livingRoomButton = true;
+                bedroomButton = true;
+            }
+            updateView();
+        }
+
+        // controller
+        function hallway() {
+            userPosition = "You're in the hallway"
+            if (userPosition == "You're in the hallway") {
+                outsideButton = false;
+                hallwayButton = true;
+                livingRoomButton = false;
+                bedroomButton = false;
+            }
+            updateView();
+        }
+        function livingRoom() {
+            userPosition = "You have entered the livingroom"
+            if (userPosition === 'You have entered the livingroom') {
+                outsideButton = true
+                hallwayButton = false;
+                livingRoomButton = true;
+                bedroomButton = false;
+            }
+            updateView();
+        }
+
+        function bedroom() {
+            userPosition = "You've entered the bedroom";
+            if (userPosition == "You've entered the bedroom") {
+                outsideButton = true;
+                hallwayButton = false;
+                livingRoomButton = false;
+                bedroomButton = true;
+            }
+            updateView();
+        }
+
+        updateView();
+
+    </script>
+</body>
+
+</html>
