@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+     </style>
+</head>
+
+<body>
+
+    <div id="app"></div>
+    <script>
+        // model
+        let userText = '';
+
+        // view
+        updateView();
+        function updateView() {
+            let reversedText = shiftText(userText);
+            document.getElementById('app').innerHTML = /*HTML*/`
+            <h1>WHATTUP BITCHES, PUT DOWN YO WORD SO I CAN REVERSE IT</H1>
+            <input type="text" value="${userText}" onchange="userText=this.value">
+            <button onclick="updateView()">click</button>
+            <div>${reversedText}</div>
+            <h1>BITCH</H1>
+            `;
+            
+        }
+
+        // controller
+        function shiftText(userText){
+            reversedText = '';
+            for(let i = userText.length; i >= 0; i--) {
+                reversedText += userText.charAt(i);
+            }
+            return reversedText;
+        }
+
+    </script>
+</body>
+
+</html>

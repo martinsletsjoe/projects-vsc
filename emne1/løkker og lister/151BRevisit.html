@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+
+        #app>input {
+            margin-bottom: 3vh;
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <div id="app"></div>
+    <script>
+        // model
+        let countUserInput = [];
+        let startInput = '';
+        let endInput = '';
+        let stepInput = '';
+
+        // view
+        updateView();
+        function updateView() {
+            let view = document.getElementById('app')
+            view.innerHTML = /*HTML*/`
+            <div>What number do you want to start with?</div>
+            <input type="number" id="userStartValue" value="${startInput}" onchange="startInput=this.value"><br/>
+            <div>Where do you want the number to end?</div>
+            <input type="number" id="userEndValue" value="${endInput}" onchange="endInput=this.value"><br/>
+            <div>How large large steps do you want to take?</div>
+            <input type="number" id="userChangeValue" value="${stepInput}" onchange="stepInput=this.value"><br/>
+            <button onclick="showNumbers()">hei</button>
+            <div>${countUserInput}</div>
+            `;
+
+        }
+
+        // controller
+        function showNumbers() {
+            countUserInput = [];
+            let start = parseInt(startInput);
+            let end = parseInt(endInput);
+            let step = parseInt(stepInput);
+
+            if (start < end && step > 0) {
+                for (let i = start; i < end; i += step) {
+                    countUserInput.push(i)
+                }
+            }
+            updateView();
+        }
+
+
+
+
+
+    </script>
+</body>
+
+</html>

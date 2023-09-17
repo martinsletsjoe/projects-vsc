@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Count a's</title>
+     <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+     </style>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script>
+        // model
+        let countA = '';
+        let numberOfLetter = 0;
+        let wantedLetter = '';
+
+        // view
+        updateView();
+        function updateView() {
+            document.getElementById('app').innerHTML = /*HTML*/`
+            <input type="text" value="${countA}" onchange="countA=this.value" placeholder="Write your word here">
+            <input type="text" value="${wantedLetter}" onchange="wantedLetter=this.value" placeholder="Write letter here">
+            <button onclick="updateView()">click</button>
+            <div>${countLetter(countA)}</div>
+            `;
+            
+        }
+
+        // controller
+        function countLetter(countA){
+            numberOfLetter = 0;
+            countA = countA.toLocaleLowerCase();
+            for(let i = 0; i < countA.length; i++){
+                if(countA.charAt(i) == wantedLetter){
+                    numberOfLetter++;
+                }
+            }return numberOfLetter;
+            
+        }
+
+    </script>
+</body>
+
+</html>
