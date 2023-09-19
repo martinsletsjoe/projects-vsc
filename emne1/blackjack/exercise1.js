@@ -21,7 +21,7 @@
 
 function countBlackJackPoints(cards) {
     let points = 0;
-    let ace = 0;
+    let aces = 0;
     if (cards === null) {
         return points = null;
     }
@@ -33,7 +33,7 @@ function countBlackJackPoints(cards) {
                 points += 1;
             } else {
                 points += 11
-                ace++;
+                aces++;
             }
         } else if (rank === 'Dame' || rank === 'konge' || rank === 'Knekt') {
             points += 10;
@@ -41,9 +41,9 @@ function countBlackJackPoints(cards) {
             points += parseInt(rank);
         }
     }
-    while (ace > 0 && points > 21) {
+    while (aces > 0 && points > 21) {
         points -= 10;
-        ace--;
+        aces--;
     }
     return points;
 }
