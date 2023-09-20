@@ -49,22 +49,22 @@ function rotate() {
         | indeks 12, col=0, rad=3 | indeks 13, col=1, rad=3 | indeks 14, col=2, rad=3 | indeks 15, col=3, rad=3 | 
         |-------------------------|-------------------------|-------------------------|-------------------------|
     */
-        let tmpBoard = [];
-        for (let index = 0; index < board.length; index++) {
-            let rowIndex;
-            for (let i = 0; i <= 3; i++) {
-                if (index >= i * 4 && index <= i * 4 + 3)
-                    rowIndex = i;
-            }
-            let newRowIndex ;
-            for (let i = 0; i <= 3; i++) {
-                if (index % 4 === i)
-                newRowIndex  = i;
-            }
-            let newColIndex = 3 - rowIndex;
-            let newIndex = newRowIndex  * 4 + newColIndex;
-            tmpBoard[newIndex] = board[index];
+    let tmpBoard = [];
+    for (let index = 0; index < board.length; index++) {
+        let rowIndex;
+        for (let i = 0; i <= 3; i++) {
+            if (index >= i * 4 && index <= i * 4 + 3)
+                rowIndex = i;
         }
-        board = tmpBoard;
-        updateView();
+        let colIndex;
+        for (let i = 0; i <= 3; i++) {
+            if (index % 4 === i)
+                colIndex = i;
+        }
+        let newColIndex = 3 - rowIndex;
+        let newIndex = colIndex * 4 + newColIndex;
+        tmpBoard[newIndex] = board[index];
     }
+    board = tmpBoard;
+    updateView();
+}
