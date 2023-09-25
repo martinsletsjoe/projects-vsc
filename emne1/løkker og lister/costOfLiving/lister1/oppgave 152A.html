@@ -17,19 +17,23 @@
     <div id="app"></div>
     <script>
         // model
+        let numbers= [];
 
         // view
         updateView();
         function updateView() {
             document.getElementById('app').innerHTML = /*HTML*/`
-
+            ${seventhNumber()}
             `;
             
         }
 
         // controller
         function seventhNumber(){
-            
+            for(let i = 100; i < 1000; i +=7){
+                numbers.push(i)
+            }
+            return numbers;
         }
 
     </script>
