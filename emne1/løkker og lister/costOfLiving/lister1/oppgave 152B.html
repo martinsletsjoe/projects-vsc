@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+     </style>
+</head>
+
+<body>
+    <!-- Oppgave 152 B  
+
+    Lag en funksjon som tar en liste av tall som parameter og som returnerer summen av tallene.
+     -->
+    <div id="app"></div>
+    <script>
+        // model
+        let numbers = [0,1,2,3,4,5,6,7,8,9,99]
+        // view
+        updateView();
+        function updateView() {
+            document.getElementById('app').innerHTML = /*HTML*/`
+            ${sumOfList(numbers)}
+            `;
+            
+        }
+
+        // controller
+        function sumOfList(numbers){
+            let sum;
+            for(let i = 0; i < numbers.length; i++) {
+                let sum += numbers[i];
+            }
+            return sum;
+        }
+    </script>
+</body>
+</html>
