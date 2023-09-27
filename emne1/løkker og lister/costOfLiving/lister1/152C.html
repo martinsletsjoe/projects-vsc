@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+
+        #app {
+            display: grid;
+            grid-template-columns: repeat(3, 10vh);
+            grid-template-rows: repeat(3, 10vh);
+        }
+        #app > div {
+            font-size: 200%;
+            border: solid 1px gray;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script>
+        // model
+        let numbers = [1, 2, 5, 7, null, 9, 3, 4, 8, 6];
+        
+        // view
+        updateView();
+        function updateView() {
+            let squaresHtml = '';
+            for (let i = 0; i < 9; i++) {
+                squaresHtml += /*HTML*/ `<div>${numbers[i]}</div>`;
+            }
+            document.getElementById('app').innerHTML = /*HTML*/`
+                ${squaresHtml}
+       
+            `;
+
+        }
+
+        // controller
+
+    </script>
+</body>
+
+</html>
