@@ -16,7 +16,8 @@
             grid-template-columns: repeat(3, 10vh);
             grid-template-rows: repeat(3, 10vh);
         }
-        #app > div {
+
+        #app>div {
             font-size: 200%;
             border: solid 1px gray;
             text-align: center;
@@ -29,22 +30,36 @@
     <script>
         // model
         let numbers = [1, 2, 5, 7, null, 9, 3, 4, 8, 6];
-        
+
         // view
         updateView();
         function updateView() {
             let squaresHtml = '';
             for (let i = 0; i < 9; i++) {
-                squaresHtml += /*HTML*/ `<div>${numbers[i]}</div>`;
+                squaresHtml += /*HTML*/ `<div onclick="swapPlace(${i})">${numbers[i] !== null ? numbers[i] : ''}</div>`;
             }
-            document.getElementById('app').innerHTML = /*HTML*/`
-                ${squaresHtml}
-       
-            `;
+            document.getElementById('app').innerHTML = squaresHtml;
+
+        }
+        // controller
+        function swapPlace(index) {
+            const adjacentIndices = [
+                index -1,
+                index +1,
+                index -3,
+                index +3,
+            ]
+
+            const emptyIndex = numbers.indexOf(null);
+            if (adjacentIndices.includes(emptyIndex)) {
+
+
+                [numbers[index], numbers[emptyIndex]] = [numbers[emptyIndex], numbers[index]]
+                updateView();
+            }
 
         }
 
-        // controller
 
     </script>
 </body>

@@ -1,6 +1,6 @@
 const model = {
     app: {
-        loggedInUser: null,
+        loggedInUser: 'Stian',
         currentPage: 'frontPage',
         displayMode: 'dark',
     },
@@ -11,11 +11,11 @@ const model = {
             {
                 id: 1,
                 title: 'Vask',
-                description: 'Vaske bad første etasje',
+                description: 'Vask bad første etasje',
                 duration: 30,
                 recurring: 'Gjentas ikke',
                 priority: 'Vanlig',
-                duedate: '09.10.2023',
+                duedate: new Date"2023-08-31",
             },
 
         ],

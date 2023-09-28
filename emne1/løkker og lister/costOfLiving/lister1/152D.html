@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <style>
+    body {
+        background-color: black;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh; /* Center content vertically */
+    }
+
+    #app {
+        display: flex;
+        flex-direction: column; /* Make the children flow vertically */
+        align-items: center;
+        text-align: center; /* Center text within the container */
+    }
+
+    #app > input {
+        width: 50vh;
+        vertical-align: top;
+
+    }
+
+     </style>
+</head>
+
+<body>
+    <div id="app"></div>
+    
+    <script>
+        // model
+        let pastedText = '';
+
+        // view
+        updateView();
+        function updateView() {
+            document.getElementById('app').innerHTML = /*HTML*/`
+            
+            <input type="text" value="${pastedText}" onchange="pastedText=this.value">
+            <div class="styled-element">Paste text above</div>
+            <button class="styled-element">Click</button>
+            
+            `;
+            
+        }
+
+        // controller
+
+    </script>
+</body>
+
+</html>
