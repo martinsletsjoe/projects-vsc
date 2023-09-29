@@ -3,12 +3,12 @@ function updateViewWeek(){
         ${createMenuHtml()}
         <h1>Uke</h1>
         <ul>
-            ${createTaskHtml()}
+            ${editTaskHtml()}
         </ul>
     `;
 }
 
-function createTaskHtml(){
+function editTaskHtml(){
     let html = '';
     for(let task of model.tasks){
         html += /*HTML*/`

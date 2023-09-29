@@ -5,53 +5,101 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-     <style>
-    body {
-        background-color: black;
-        color: white;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh; /* Center content vertically */
-    }
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            display: flex;
+        }
 
-    #app {
-        display: flex;
-        flex-direction: column; /* Make the children flow vertically */
-        align-items: center;
-        text-align: center; /* Center text within the container */
-    }
+        #largeTextInput {
+            width: 300%;
+            resize: none;
 
-    #app > input {
-        width: 50vh;
-        vertical-align: top;
+            padding: 10px;
+            font-size: 16px;
+        }
 
-    }
+        table {
+            font-family: Arial, sans-serif;
+            border-collapse: collapse;
+            width: 400%;
+        }
 
-     </style>
+        td,
+        th {
+            border: 1px solid gray;
+            text-align: center;
+        }
+
+        tr:nth-child(even) {
+            background-color: darkgrey;
+        }
+    </style>
 </head>
 
 <body>
     <div id="app"></div>
-    
+
     <script>
         // model
-        let pastedText = '';
+        let userText = '';
+        let words = [];
+        let uniqueWords = [];
+        let wordCounts = [];
 
         // view
         updateView();
         function updateView() {
             document.getElementById('app').innerHTML = /*HTML*/`
-            
-            <input type="text" value="${pastedText}" onchange="pastedText=this.value">
-            <div class="styled-element">Paste text above</div>
-            <button class="styled-element">Click</button>
-            
+
+            <textarea id="largeTextInput" value="${userText}" onchange="userText=this.value"></textarea>
+            <div>Paste text above</div>
+            <button onclick="filtering()">Click</button>
+
+            <table>
+                <tr>
+                    <th>indeks </th>
+                    <th>words</th>
+                    <th>wordCounts</th>
+                </tr>
+                ${words.map((word, index) =>`
+                <tr>
+                    <td>${index}</td>
+                    <td>${word}</td>
+                    <td>${wordCounts[index] || 0 }</td>
+                </tr>`).join('')}
+            </table>
             `;
-            
+
         }
 
         // controller
+        function filtering() {
+            userText = userText.replace(/[^a-zA-Z\s]/g, '')
+            words = userText.split(' ')
+            uniqueWords = [];
+            wordCounts = [];
+            for (const word of words) {
+                const index = uniqueWords.indexOf(word)
+                if (index !== -1) {
+                    // Word alread exists, increment count
+                    wordCounts[index]++;
+                } else {
+                    // Word is new, add to uniqueWords and set count to 1
+                    uniqueWords.push(word);
+                    wordCounts.push(1);
+                }
+            }
+            updateView();
+        }
+
+
+        // gå alle ordene i teksten
+        // for hvert ord skal det telles hvor mange av de det er
+        //
+
+
 
     </script>
 </body>

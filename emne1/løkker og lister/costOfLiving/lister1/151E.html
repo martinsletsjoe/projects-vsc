@@ -14,34 +14,20 @@
 </head>
 
 <body>
-
     <div id="app"></div>
     <script>
         // model
-        let userText = '';
 
         // view
         updateView();
         function updateView() {
-            let reversedText = shiftText(userText);
             document.getElementById('app').innerHTML = /*HTML*/`
-            <h1>oi</H1>
-            <input type="text" value="${userText}" onchange="userText=this.value">
-            <button onclick="updateView()">click</button>
-            <div>${reversedText}</div>
-            <h1>oi</H1>
+
             `;
             
         }
 
         // controller
-        function shiftText(userText){
-            reversedText = '';
-            for(let i = userText.length; i >= 0; i--) {
-                reversedText += userText.charAt(i);
-            }
-            return reversedText;
-        }
 
     </script>
 </body>

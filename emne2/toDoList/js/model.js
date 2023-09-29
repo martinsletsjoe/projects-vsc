@@ -1,65 +1,70 @@
 const model = {
     app: {
-        loggedInUser: 'Stian',
-        currentPage: 'frontPage',
-        displayMode: 'dark',
+        currentPage: 'addOrEditTask',
     },
     inputs: {
-        addTask: false,
-        login: true,
-        tasks: [
-            {
-                id: 1,
-                title: 'Vask',
-                description: 'Vask bad første etasje',
-                duration: 30,
-                recurring: 'Gjentas ikke',
-                priority: 'Vanlig',
-                duedate: new Date"2023-08-31",
-            },
-
-        ],
+        todayPage: {
+            currentDate: '2023-09-28',
+        },
+        weekPage: {
+            fromDate: '2023-09-25',
+        },
+        addTaskPage: {
+            id: 2,
+            title: null,
+            description: null,
+            duration: 30,
+            recurring: 'Gjentas ikke',
+            priority: 'Vanlig',
+            duedate: null,
+        },
+        editTaskPage: {
+            id: 2,
+            title: null,
+            description: null,
+            duration: 30,
+            recurring: 'Gjentas ikke',
+            priority: 'Vanlig',
+            duedate: null,
+        },
+        editTask: {
+            id: null,
+            title: null,
+            description: null,
+            duration: null,
+            recurring: null,
+            priority: null,
+            duedate: null,
+        },
     },
     // data
-    tasksStatus: {
-        pending: [
-            // pending tasks here
-        ],
-        completed: [
-            // completed tasks here
-        ],
-        delayed: [
-            // delayed tasks here
-        ],
-        archived: [
-            // archived tasks here
-        ],
-    },
-    daily: [
+    tasks: [
         {
-            task1: 'oppvask',
-            task2: 'middag',
-            task3: 'trening',
+            id: 1,
+            title: 'Vask',
+            description: 'Vask bad første etasje',
+            duration: 30,
+            recurring: 'Gjentas ikke',
+            priority: 'Vanlig',
+            duedate: "2023-09-27",
         },
-    ],
-
-    weekly: [
         {
-            monday: ['oppvask', 'vaskestue', 'oppgave 3',],
-            tuesday: ['oppg 4'],
-            wednesday: ['oppg 5'],
-            thursday: ['oppg 6'],
-            friday: ['oppg 7'],
-            saturday: ['oppg 8'],
-            sunday: ['oppg 9'],
+            id: 2,
+            title: 'Vask',
+            description: 'Vask bad andre etasje',
+            duration: 30,
+            recurring: 'Gjentas ikke',
+            priority: 'Vanlig',
+            duedate: "2023-09-28",
+        },
+        {
+            id: 3,
+            title: 'Vask',
+            description: 'Vask bad tredje etasje',
+            duration: 30,
+            recurring: 'Gjentas ikke',
+            priority: 'Vanlig',
+            duedate: "2023-09-29",
         },
     ],
 };
-
-/*
- - Per side: 
-   1: Hvilke data vises her - og hvordan skal de ligge i 
-      modellen for at vi skal kunne tegne opp siden?
-   2: Hva kan brukeren gjøre på denne siden - og hvilke 
-      endringer i modellen følger av det?
-*/
