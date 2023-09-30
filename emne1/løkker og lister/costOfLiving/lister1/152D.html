@@ -5,101 +5,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
+     <style>
         body {
             background-color: black;
             color: white;
-            display: flex;
         }
-
-        #largeTextInput {
-            width: 300%;
-            resize: none;
-
-            padding: 10px;
-            font-size: 16px;
-        }
-
         table {
-            font-family: Arial, sans-serif;
+            width: 50%;
             border-collapse: collapse;
-            width: 400%;
         }
-
-        td,
-        th {
+        th, td {
             border: 1px solid gray;
-            text-align: center;
         }
-
         tr:nth-child(even) {
-            background-color: darkgrey;
+            background-color: darkblue;
         }
-    </style>
+        textarea {
+            width: 50%;
+        }
+     </style>
 </head>
 
 <body>
     <div id="app"></div>
-
     <script>
         // model
-        let userText = '';
-        let words = [];
-        let uniqueWords = [];
-        let wordCounts = [];
+        let userInputText = '';
+        let words = '';
+        let wordcounts = 0;
 
         // view
         updateView();
         function updateView() {
             document.getElementById('app').innerHTML = /*HTML*/`
-
-            <textarea id="largeTextInput" value="${userText}" onchange="userText=this.value"></textarea>
-            <div>Paste text above</div>
-            <button onclick="filtering()">Click</button>
+            <textarea value="${userInputText}" oninput="userInputText=this.value"></textarea><br/>
+            <button onclick="filterOutSymbols()">Trykk</button>
 
             <table>
                 <tr>
-                    <th>indeks </th>
-                    <th>words</th>
-                    <th>wordCounts</th>
-                </tr>
-                ${words.map((word, index) =>`
+                    <th>index</th>    
+                    <th>words</th>    
+                    <th>wordcount</th>    
+                </tr>    
                 <tr>
-                    <td>${index}</td>
-                    <td>${word}</td>
-                    <td>${wordCounts[index] || 0 }</td>
-                </tr>`).join('')}
+                    <td>0</td>
+                    <td>hei</td>
+                    <td>3</td>
+                </tr>
+                
             </table>
-            `;
 
+            `;
+            
         }
 
         // controller
-        function filtering() {
-            userText = userText.replace(/[^a-zA-Z\s]/g, '')
-            words = userText.split(' ')
-            uniqueWords = [];
-            wordCounts = [];
-            for (const word of words) {
-                const index = uniqueWords.indexOf(word)
-                if (index !== -1) {
-                    // Word alread exists, increment count
-                    wordCounts[index]++;
-                } else {
-                    // Word is new, add to uniqueWords and set count to 1
-                    uniqueWords.push(word);
-                    wordCounts.push(1);
+        function filterOutSymbols(){
+            let filteredText = '';
+            for(let i = 0; i < userInputText.length; i++) {
+                if(!userInputText.includes(a-z)){
+                    filteredText.push(userInputText[i])
                 }
             }
-            updateView();
         }
-
-
-        // gå alle ordene i teksten
-        // for hvert ord skal det telles hvor mange av de det er
-        //
-
-
 
     </script>
 </body>
