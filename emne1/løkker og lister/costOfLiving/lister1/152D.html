@@ -5,25 +5,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-     <style>
+    <style>
         body {
             background-color: black;
             color: white;
         }
+
         table {
             width: 50%;
             border-collapse: collapse;
         }
-        th, td {
+
+        th,
+        td {
             border: 1px solid gray;
         }
+
         tr:nth-child(even) {
             background-color: darkblue;
         }
+
         textarea {
             width: 50%;
         }
-     </style>
+    </style>
 </head>
 
 <body>
@@ -31,15 +36,15 @@
     <script>
         // model
         let userInputText = '';
-        let words = '';
-        let wordcounts = 0;
+
 
         // view
         updateView();
         function updateView() {
+            const { words, wordCounts } = countWords(userInputText);
             document.getElementById('app').innerHTML = /*HTML*/`
             <textarea value="${userInputText}" oninput="userInputText=this.value"></textarea><br/>
-            <button onclick="filterOutSymbols()">Trykk</button>
+            <button onclick="updateView(userInputText)">Trykk</button>
 
             <table>
                 <tr>
@@ -47,28 +52,64 @@
                     <th>words</th>    
                     <th>wordcount</th>    
                 </tr>    
-                <tr>
-                    <td>0</td>
-                    <td>hei</td>
-                    <td>3</td>
-                </tr>
+                ${generateTableRows(words, wordCounts)}
                 
             </table>
-
-            `;
             
+            `;
+
         }
 
         // controller
-        function filterOutSymbols(){
-            let filteredText = '';
-            for(let i = 0; i < userInputText.length; i++) {
-                if(!userInputText.includes(a-z)){
-                    filteredText.push(userInputText[i])
+        function getListOfWordsFromText(text) {
+            const alphabet = 'ABCDEFGHIJKLMOPQRSTUVWXYZÆØÅ';
+            const validCharacters = alphabet + alphabet.toLowerCase() + ' \n';
+            let cleanText = '';
+            for (let character of text.replaceAll('\n', ' ')) {
+                if (validCharacters.includes(character)) {
+                    cleanText += character;
                 }
             }
+            return cleanText.split(' ');
         }
 
+        function countWords() {
+            let wordsFromInput = getListOfWordsFromText(userInputText);
+            console.log(wordsFromInput)
+            let words = [];
+            let wordCounts = [];
+            for (let word of wordsFromInput) {
+                let index = words.indexOf(word)
+                if (index != -1) {
+                    wordCounts[index]++;
+                } else {
+                    words.push(word)
+                    wordCounts.push(1)
+                }
+            }
+            console.log(words)
+            console.log(wordCounts)
+            return { words, wordCounts };
+            
+
+
+        }
+        countWords()
+
+        function generateTableRows(words, wordCounts) {
+            let tableRows = '';
+            for (let i = 0; i < words.length; i++) {
+                tableRows += /*HTML*/`
+                    <tr>
+                        <td>${i}</td>
+                        <td>${words[i]}</td>
+                        <td>${wordCounts[i]}</td>
+                    </tr>
+                `;
+            }
+            return tableRows;
+
+        }
     </script>
 </body>
 
