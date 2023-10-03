@@ -5,29 +5,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-     <style>
+    <style>
         body {
             background-color: black;
             color: white;
         }
-     </style>
+    </style>
 </head>
 
 <body>
     <div id="app"></div>
     <script>
         // model
+        var numbers = [];
+
 
         // view
-        updateView();
-        function updateView() {
-            document.getElementById('app').innerHTML = /*HTML*/`
-
-            `;
-            
+        show();
+        // controller
+        function addNumber(inputTag) {
+            numbers.push(parseInt(inputTag.value));
+            inputTag.value = '';
+            show();
         }
 
-        // controller
+        function show() {
+            var statsDiv = document.getElementById('app');
+            statsDiv.innerHTML = `<input type="number" onkeydown="if(event.code === 'Enter') addNumber(this);"/>`;
+            const numbersHtml = `<ul>${numbers.map(n => `<li>${n}</li>`).join('')}</ul>`;
+            const stats = calcStats();
+            const statsHtml =
+            `<table>
+                <tr><td>Min</td><td>${stats.min || ''}</td></tr>
+                <tr><td>Max</td><td>${stats.max || ''}</td></tr>
+                <tr><td>Sum</td><td>${stats.sum}</td></tr>
+                <tr><td>Snitt</td><td>${stats.avg || ''}</td></tr>
+                <tr><td>Antall</td><td>${stats.count}</td></tr>
+            </table>`;
+            statsDiv.innerHTML += statsHtml + numbersHtml ;
+        }
+
+        function calcStats() {
+            var stats = {}
+            stats.min = numbers[0];
+            stats.max = numbers[0];
+            stats.sum = 0;
+            for (let n of numbers) {
+                if (n < stats.min) stats.min = n;
+                if (n > stats.max) stats.max = n;
+                stats.sum += n;
+            }
+            stats.count = numbers.length
+            stats.avg = stats.sum / stats.count
+            return stats;
+        }
 
     </script>
 </body>

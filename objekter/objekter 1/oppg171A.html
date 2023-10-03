@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+        #app >div {
+            display: grid;
+            width: 50px;
+            height: 50px;
+        }
+     </style>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script>
+        // model
+        let currentColor = { red: 250, green: 200, blue: 50}
+
+        // view
+
+            
+        
+        drawSquare();
+        // controller
+        function drawSquare(currentcolor){
+            const stats = createColors();
+            document.getElementById('app').innerHTML += /*HTML*/`
+            <div style="background-color: rgb(${currentColor.red},${currentColor.green},${currentColor.blue})"></div>
+            <button onclick="createColors()"></div>
+            ${createColors()}
+            `;
+        }
+
+        function createColors(){
+            let coolcolor = {};
+            coolcolor.red = 100;
+            coolcolor.green = 200;
+            coolcolor.blue = 50;
+            return coolcolor;
+        }
+
+    </script>
+</body>
+
+</html>
