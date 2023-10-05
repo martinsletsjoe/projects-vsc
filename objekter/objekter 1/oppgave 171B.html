@@ -22,7 +22,7 @@
     <div id="app"></div>
     <script>
         // model
-        let currentColor = { red: 250, green: 200, blue: 50}
+        
 
         // view
 
@@ -30,20 +30,21 @@
         
         drawSquare();
         // controller
-        function drawSquare(currentcolor){
-            const stats = createColors();
+        function drawSquare(){
+            let currentColor = { red: 250, green: 200, blue: 50}
+            const stats = createColors(currentColor);
             document.getElementById('app').innerHTML += /*HTML*/`
-            <div style="background-color: rgb(${currentColor.red},${currentColor.green},${currentColor.blue})"></div>
-            <button onclick="createColors()"></div>
-            ${createColors()}
+            <div style="background-color: rgb(${stats.red},${stats.green},${stats.blue})"></div>
+            
+            
             `;
         }
 
-        function createColors(){
+        function createColors(currentColor){
             let coolcolor = {};
-            coolcolor.red = 100;
-            coolcolor.green = 200;
-            coolcolor.blue = 50;
+            coolcolor.red = 255 - currentColor.red;
+            coolcolor.green = 255 - currentColor.green;
+            coolcolor.blue = 200 - currentColor.blue;
             return coolcolor;
         }
 
