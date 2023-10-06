@@ -14,7 +14,7 @@ function countBlackJackPoints(cards) {
                 points += 11
                 aces++;
             }
-        } else if (rank === 'Dame' || rank === 'konge' || rank === 'Knekt') {
+        } else if (rank === 'Dame' || rank === 'Konge' || rank === 'Knekt') {
             points += 10;
         } else {
             points += parseInt(rank);

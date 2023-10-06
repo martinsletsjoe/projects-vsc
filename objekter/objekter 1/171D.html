@@ -22,17 +22,24 @@
     <div id="app"></div>
     <script>
         // model
-        
+        let model = {
+            color1: {red:200, green: 50, blue: 100},
+        }
 
         // view
+        function updateView(){
+            document.getElementById('app').innerHTML = /*HTML*/`
+            
 
+            `;
+        }
             
         
         drawSquare();
         // controller
         function drawSquare(){
             let currentColor = { red: 250, green: 200, blue: 50}
-            const stats = createColors(currentColor);
+            const stats = inverseColors(currentColor);
             const avgColor = averageColor(currentColor, stats);
             document.getElementById('app').innerHTML += /*HTML*/`
             <div style="background-color: rgb(${stats.red},${stats.green},${stats.blue})"></div>
@@ -43,12 +50,12 @@
             `;
         }
 
-        function createColors(currentColor){
-            let coolcolor = {};
-            coolcolor.red = 255 - currentColor.red;
-            coolcolor.green = 255 - currentColor.green;
-            coolcolor.blue = 200 - currentColor.blue;
-            return coolcolor;
+        function inverseColors(currentColor){
+            return coolcolor = {
+            red: 255 - currentColor.red,
+            green: 255 - currentColor.green,
+            blue: 200 - currentColor.blue,
+        }
         }
         function averageColor(currentColor, stats) {
             let avgColor = {};
@@ -56,6 +63,33 @@
             avgColor.green = (currentColor.green + stats.green)/2
             avgColor.blue = (currentColor.blue + stats.blue)/1
             return avgColor;
+        }
+
+        function getColorGradient(color1, color2) {
+            let changeRed = (color2.red - color1.red) / 9;
+            let changeGreen = (color2.green - color1.green) / 9;
+            let changeBlue = (color2.blue - color1.blue) / 9;
+            let colors = [];
+            for(let i = 0; i < 10; i++) {
+                colors.push({
+                    red: color1.red + i * changeRed,
+                    green: color1.green + i * changeGreen,
+                    blue: color1.blue + i * changeBlue,
+                })
+            }
+            return colors;
+        }
+
+        function init(){
+            model.color2 = invertColor(model.color1)
+        }
+
+        function invertColor(color) {
+            return {
+                red: 255 - color.red,
+                green: 255 - color.green,
+                blue: 255 - color.blue,
+            };
         }
 
     </script>
