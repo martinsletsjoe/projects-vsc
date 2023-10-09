@@ -23,7 +23,7 @@
     <script>
         // model
         let model = {
-            color1: {red:200, green: 50, blue: 100},
+            color1: {red:200, green: 250, blue: 100},
         }
 
         // view
@@ -38,59 +38,48 @@
         drawSquare();
         // controller
         function drawSquare(){
-            let currentColor = { red: 250, green: 200, blue: 50}
-            const stats = inverseColors(currentColor);
-            const avgColor = averageColor(currentColor, stats);
+            // let currentColor = { red: 250, green: 200, blue: 50}
+            const color5 = inverseColors(model.color1);
+            const color3 = averageColor(model.color1, color5);
+            const color2 = averageColor(model.color1, color3);
+            const color4 = averageColor(color3, color5);
             document.getElementById('app').innerHTML += /*HTML*/`
-            <div style="background-color: rgb(${stats.red},${stats.green},${stats.blue})"></div>
-            <div style="background-color: rgb(${currentColor.red},${currentColor.green},${currentColor.blue})"></div>
-            <div style="background-color: rgb(${avgColor.red},${avgColor.green},${avgColor.blue})"></div>
+            <div style="background-color: rgb(${model.color1.red},${model.color1.green},${model.color1.blue})"></div> 
+            
+            <div style="background-color: rgb(${color2.red},${color2.green},${color2.blue})"></div> 
+            <div style="background-color: rgb(${color3.red},${color3.green},${color3.blue})"></div> 
+            <div style="background-color: rgb(${color4.red},${color4.green},${color4.blue})"></div> 
+            
+            <div style="background-color: rgb(${color5.red},${color5.green},${color5.blue})"></div> 
+
+            
+            
+            
             
             
             `;
+            // <div style="background-color: rgb(${currentColor.red},${currentColor.green},${currentColor.blue})"></div> 
+            // <div style="background-color: rgb(${avgColor.red},${avgColor.green},${avgColor.blue})"></div>
+            // <div style="background-color: rgb(${stats.red},${stats.green},${stats.blue})"></div>
         }
 
-        function inverseColors(currentColor){
-            return coolcolor = {
-            red: 255 - currentColor.red,
-            green: 255 - currentColor.green,
-            blue: 200 - currentColor.blue,
+        function inverseColors(color){
+            return color = {
+            red: 255 - color.red,
+            green: 255 - color.green,
+            blue: 200 - color.blue,
         }
         }
-        function averageColor(currentColor, stats) {
+        function averageColor(color, stats) {
             let avgColor = {};
-            avgColor.red = (currentColor.red + stats.red)/2
-            avgColor.green = (currentColor.green + stats.green)/2
-            avgColor.blue = (currentColor.blue + stats.blue)/1
+            avgColor.red = (color.red + stats.red)/2
+            avgColor.green = (color.green + stats.green)/2
+            avgColor.blue = (color.blue + stats.blue)/2
             return avgColor;
         }
 
-        function getColorGradient(color1, color2) {
-            let changeRed = (color2.red - color1.red) / 9;
-            let changeGreen = (color2.green - color1.green) / 9;
-            let changeBlue = (color2.blue - color1.blue) / 9;
-            let colors = [];
-            for(let i = 0; i < 10; i++) {
-                colors.push({
-                    red: color1.red + i * changeRed,
-                    green: color1.green + i * changeGreen,
-                    blue: color1.blue + i * changeBlue,
-                })
-            }
-            return colors;
-        }
 
-        function init(){
-            model.color2 = invertColor(model.color1)
-        }
 
-        function invertColor(color) {
-            return {
-                red: 255 - color.red,
-                green: 255 - color.green,
-                blue: 255 - color.blue,
-            };
-        }
 
     </script>
 </body>

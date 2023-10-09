@@ -17,22 +17,42 @@
     <div id="app"></div>
     <script>
 
-        let userText = 'Det var en gang bla bla bla';
+        let userText = '';
 
 
-        let wordCounts = {};
-
-
-        let words = userText.split(' ')
-        for (word of words) {
-            if(wordCounts[word]) wordCounts[word]++;
-                 else wordCounts[word] = 1
-            document.getElementById('app').innerHTML += `<div>${word}</div>`;
+        updateView();
+        function updateView() {
+            let tableHtml = '';
+            if(userText != ''){
+            let wordCounts = sumWords();
+            tableHtml = `<table><tr><th>Word Count</th></tr>`;
+            for (let word in wordCounts) {
+                tableHtml += `<tr><td>${word}</td><td>${wordCounts[word]}</td></tr>`;
+            }
+            tableHtml += "</table>"}
+            document.getElementById('app').innerHTML = /*HTML*/`
+            <textarea onchange="userText=this.value">${userText}</textarea>
+            <button onclick="updateView()">Count Words</button>
+            ${tableHtml}
+            
+            `;
         }
-        console.log(wordCounts)
+
+        function sumWords() {
+
+            let wordCounts = {};
+
+
+            let words = userText.split(' ')
+            for (word of words) {
+                if (wordCounts[word]) wordCounts[word]++;
+                else wordCounts[word] = 1;
+            }
+            console.log(wordCounts)
+            return wordCounts;
+        }
 
     </script>
 </body>
 
 </html>
-

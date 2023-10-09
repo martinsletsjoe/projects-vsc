@@ -40,9 +40,10 @@ const model = {
     belts: [
         {id: 1, name: 'Gult belte'},
         {id: 2, name: 'Oransje belte'},
-        {id: 3, name: 'Blått belte'},
-        {id: 4, name: 'Brunt belte'},
-        {id: 5, name: 'Svart belte'},
+        {id: 3, name: 'Grønt belte'},
+        {id: 4, name: 'Blått belte'},
+        {id: 5, name: 'Brunt belte'},
+        {id: 6, name: 'Svart belte'},
     ],
     categories: [
         {id: 1, name: 'Del A - Grunnteknikker'},
@@ -52,6 +53,12 @@ const model = {
     subtypes: [
         {id: 101, name: 'Guard', categoryId: 1},
         {id: 102, name: 'Forflyttninger', categoryId: 1},
+        {id: 103, name: 'Fallteknikk', categoryId: 1},
+        {id: 104, name: 'Kaste/Fellinger', categoryId: 1},
+        {id: 105, name: 'Slag', categoryId: 1},
+        {id: 106, name: 'Spark', categoryId: 1},
+        {id: 107, name: 'Mønster', categoryId: 1},
+        {id: 108, name: 'Blokkering', categoryId: 1},
         {id: 201, name: 'Forfra', categoryId: 2},
     ],
     exercises: [
