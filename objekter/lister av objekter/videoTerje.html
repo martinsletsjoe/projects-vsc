@@ -105,9 +105,9 @@
             return `<tr>
                             <td><input id="editDescription${i}" type="text" value="${task.description}"/> </td>
                             <td><input onchange="changeIsDone(this, ${i})" type="checkbox" ${checkedHtml} />
-                                <input type="date" value="${taskDueDateHtml}"/></td>
+                                <input type="date" id="editDate${i}" value="${taskDueDateHtml}"/></td>
                                 </td>
-                            <td><input id="editResponsible${i}" type="text" value="${task.responsible || ''}"/></td>
+                            <td><input id="editResponsible${i}" type="text" value="${responsibleHtml || ''}"/></td>
                             <td>
                                 <button onclick="updateTask(${i})">Lagre</button>
                             </td>
@@ -135,11 +135,14 @@
         function updateTask(index) {
             const id = `editDescription${index}`;
             const idResponsible = `editResponsible${index}`;
+            const idDate = `editDate${index}`;
             const inputTag = document.getElementById(id);
             const inputResponsibleTag = document.getElementById(idResponsible);
+            const inputDateTag = document.getElementById(idDate);
             const task = tasks[index]
             task.description = inputTag.value;
             task.responsible = inputResponsibleTag.value;
+            task.taskDueDate = inputDateTag.value;
             task.editMode = false;
             show();
         }
