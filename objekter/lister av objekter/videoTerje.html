@@ -90,11 +90,11 @@
             const task = tasks[i]
             const checkedHtml = task.isDone ? `checked="checked"` : '';
             const responsibleHtml = task.responsible || '';
-            const taskDueDateHtml = task.taskDueDate;
+            const taskDueDateHtml = task.taskDueDate || '';
             if (!task.editMode) return `<tr>
                             <td>${task.description} </td>
-                            <td><input onchange="changeIsDone(this, ${i})" type="checkbox" ${checkedHtml} />
-                                <input type="date" value="${taskDueDateHtml}"/></td>
+                            <td><input onchange="changeIsDone(this, ${i})" type="checkbox" ${checkedHtml}/></td>
+                            <td>${taskDueDateHtml}</td>
                             <td>${responsibleHtml}</td>
                             <td>
                                 <button onclick="deleteTask(${i})">Slett</button>
