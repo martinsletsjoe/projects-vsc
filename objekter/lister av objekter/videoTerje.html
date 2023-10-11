@@ -12,7 +12,10 @@
             font-size: 200%;
         }
 
-        table, tr,td,th {
+        table,
+        tr,
+        td,
+        th {
             border: 1px solid darkgray;
             border-collapse: collapse;
         }
@@ -25,7 +28,9 @@
             border: 1px solid darkblue;
             padding-left: 10px;
         }
-        input, #taskButton {
+
+        input,
+        #taskButton {
             float: left;
         }
     </style>
@@ -35,9 +40,9 @@
     <table id="tasksTable">
     </table>
     <p>
-        <input type="text" id="taskDescription" placeholder="Oppgave"/>
-        <input type="date" id="taskDueDate"/>
-        <input style="width: 11vh;" placeholder="ansvarlig person" type="text" id="taskResponsible"/>
+        <input type="text" id="taskDescription" placeholder="Oppgave" />
+        <input type="date" id="taskDueDate" />
+        <input style="width: 11vh;" placeholder="ansvarlig person" type="text" id="taskResponsible" />
         <button id="taskButton" onclick="addTask()">Legg til oppgaven</button>
     </p>
     <script>
@@ -45,7 +50,7 @@
 
         var tasks = [
             { description: 'Handle til middag', isDone: true, taskDueDate: "2023-02-13", responsible: 'Martin' },
-            { description: 'Lage middag', isDone: false },
+            { description: 'Lage middag', isDone: false,  taskDueDate: "2020-02-13", responsible: 'Martin' },
             { description: 'Spise middag', isDone: false },
         ];
         // controller
@@ -73,9 +78,11 @@
         function show() {
             let html = /*HTML*/`
                 <tr>
-                    <th>Oppgave</th>
-                    <th>Gjort</th>
-                    <th>Ansvarlig</th>
+                    <th>Oppgave ${getSortButtonsHtml('description')}</th>
+                    <th>Gjort ${getSortButtonsHtml('isDone')}</th>
+                    <th>Ansvarlig ${getSortButtonsHtml('responsible')}
+                        ${UniqueResponsibleHtml()}
+                        </th>
                     <th></th>
                     
             </tr>`;
@@ -86,6 +93,33 @@
             tasksTable.innerHTML = html;
         }
 
+        function UniqueResponsibleHtml() {
+            const responsible = tasks.map(task => task.responsible).filter(responsible => responsible);
+            let optionsHtml = '';
+            const unique = [];
+            for (let i = 0; i < responsible.length; i++) {
+                if(unique.indexOf(responsible[i]) === -1) {
+                    unique.push(responsible[i])
+                }
+                optionsHtml += /*HTML*/`
+                    <option>${unique}</option>
+                `;
+            }
+            return /*HTML*/`
+            <select>
+                ${optionsHtml}
+            </select>
+            `;
+        }
+
+
+        function getSortButtonsHtml(sortField) {
+            return /*HTML*/`
+                <button onclick="setSort('${sortField}')">▲</button>
+                `;
+            // <button>▼</button>
+        }
+
         function createHtmlRow(i) {
             const task = tasks[i]
             const checkedHtml = task.isDone ? `checked="checked"` : '';
@@ -93,8 +127,8 @@
             const taskDueDateHtml = task.taskDueDate || '';
             if (!task.editMode) return `<tr>
                             <td>${task.description} </td>
-                            <td><input onchange="changeIsDone(this, ${i})" type="checkbox" ${checkedHtml}/></td>
-                            <td>${taskDueDateHtml}</td>
+                            <td><input onchange="changeIsDone(this, ${i})" type="checkbox" ${checkedHtml}/>
+                            ${taskDueDateHtml}</td>
                             <td>${responsibleHtml}</td>
                             <td>
                                 <button onclick="deleteTask(${i})">Slett</button>
@@ -118,7 +152,6 @@
 
 
         function changeIsDone(checkbox, index) {
-            // const isDone = checkbox.checked;
             tasks[index].isDone = checkbox.checked;
             show();
         }
@@ -144,6 +177,15 @@
             task.responsible = inputResponsibleTag.value;
             task.taskDueDate = inputDateTag.value;
             task.editMode = false;
+            show();
+        }
+
+        function setSort(sortField) {
+            tasks.sort(function (a, b) {
+                if (a[sortField] > b[sortField]) return 1;
+                if (a[sortField] < b[sortField]) return -1;
+                return 0;
+            });
             show();
         }
     </script>
