@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+     </style>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script>
+        // model
+        let pageIndex = 0;
+        let numbers = [];
+        let evenValues = false;
+
+        // view
+        updateView();
+        function updateView() {
+            let html = '';
+            const result = oneToThousand();
+            let newNumbers = evenValues ? sortEvenNumbers() : result;
+            const pages = createPagingHtml(10)
+            const newValues = skipAndTake(newNumbers,pageIndex,10)
+            for (let number of newValues){
+                html += /*HTML*/`
+                    <li>${number}</li>
+                `;
+            }
+            document.getElementById('app').innerHTML = /*HTML*/`
+            <ul>
+                ${html}
+            </ul>
+            ${pages}<br/><br/>
+            <button onclick="toggleEvenValues()">Partall</button>
+            `;  
+            
+        }
+
+        // controller
+        function sortEvenNumbers(){
+            let newNumbers = [...numbers];
+            let evenValues = [];
+            for (let i = 0; i < newNumbers.length; i++) {
+                if(i % 2 === 0) {
+                    evenValues.push(newNumbers[i])
+                }
+            }
+            console.log(evenValues)
+            return evenValues;
+        }
+        function toggleEvenValues() {
+            evenValues = !evenValues; // Toggle the evenValues flag
+            updateView();
+        }
+
+
+        function oneToThousand(){
+            numbers = [];
+            for(let i = 0; i < 100; i++) {
+                numbers.push(i);
+            }
+            return numbers;
+        } 
+
+        function skipAndTake(values, pageIndex, pageSize){
+            let newValues = [];
+            let skipCount = pageIndex * pageSize;
+            let takeCount = pageSize;
+            for (let value of values){
+                skipCount--;
+                if (skipCount >= 0) continue;
+                if(takeCount <= 0) break;
+                takeCount--;
+                newValues.push(value)
+            }
+            return newValues;
+        }
+
+        function createPagingHtml(pageSize) {
+            const result = oneToThousand();
+            let html = '';
+            let pageCount = Math.ceil(result.length / pageSize)
+            for(let pageNo = 1; pageNo <= pageCount; pageNo++){
+                html += `<a href="javascript:goToPage(${pageNo})">${pageNo}</a> `
+            }
+            return html;
+        }
+
+        function goToPage(pageNo){
+            pageIndex = pageNo -1;
+            updateView();
+        }
+
+
+    </script>
+</body>
+
+</html>
