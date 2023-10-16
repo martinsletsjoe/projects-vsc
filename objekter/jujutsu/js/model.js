@@ -5,12 +5,11 @@ const model = {
     inputs: {
         startPage: {
             id: 1,
-            loggedIn: false,
+            myGrade: "Gult belte",
 
         },
         userPage: {
-            id: 4 ,
-            myGrade: "Gult belte",
+            id: 2 ,
             title: null,
             description: null,
         },
