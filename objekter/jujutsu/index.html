@@ -5,24 +5,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="js/model.js"></script>
-    <script src="js/beltView.js"></script>
     <script src="js/beltController.js"></script>
-    <script src="js/categoriesView.js"></script>
+     <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+     </style>
 </head>
 
 <body>
     <div id="app"></div>
     <script>
+        // model
+
+        // view
         updateView();
         function updateView() {
-            beltType();
-            toggleCategories();
+            let belts = model.belts
+            let optionsHtml = '';
+            let beltOptions = [];
+            for (let i = 0; i < belts.length; i++) {
+                beltOptions.push()
+            }
+            document.getElementById('app').innerHTML = /*HTML*/`
+            <h1>${belts[0].name}</h1>
+            <button>min side</button>
+            `;
             
         }
 
-
+        // controller
 
     </script>
 </body>

@@ -5,52 +5,81 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-     <style>
+    
+    <script src="js/model.js"></script>
+    <style>
         body {
             background-color: black;
-            color: black;
+            color: white;
         }
-        #beltType {
-            display: flex;
-            width: 20vh;
-            height: 10vh;
-            text-align: center;
-            font-size: 200%;
-            background-color: gray;
-        }
-        
-     </style>
+    </style>
 </head>
 
 <body>
     <div id="app"></div>
-
-    <label>Belts</label>
-    <select id="beltType" name="Belts" > 
-        <option value="" selected disabled>Velg belte</option>
-        <option value="yellow">gul</option>
-        <option value="green">grønn</option>
-        <option value="orange">oransj</option>
-        <option value="blue">blå</option>
-        <option value="black">sort</option>
-    </select>
-
-
-
-    <div class="toggle-panel">
-        <div class="toggle-header">Click me to toggle</div>
-        <div class="toggle-content">
-            <!-- Your content goes here -->
-            <p>This is the content that will be revealed and hidden.</p>
-        </div>
-    </div>
-
     <script>
+        // model
+        const subtypeInfo = {
+            'Forfra': 'Forflytning bakover med avledninger av slagene',
+            'Siden': 'Forflytning bakoledninger av slagene',
+            'Bakfra': 'Forflytning bakover med avledninger av slagene',
+            'Bakketeknikker': 'Forflytnindninger av slagene',
+
+        };
 
 
+        // view
+        updateView();
+        function updateView() {
+            let categories = model.categories;
+            for(let i = 0; i < categories.length; i++){
+                const trainingCategory = categories[i].name;
+                const start = i * 4;
+                const end = start + 4;
+                const subTypeToShow = model.subtypes.slice(start, end);
+                const container = document.createElement('div');
+                container.innerHTML += /*HTML*/`
+                <h1>${trainingCategory}</h1>
+                ${techniqueTraining(subTypeToShow)}
+                <div id="techniqueInfo"></div>
+                `;
+                document.getElementById('app').appendChild(container);
+            }
+
+
+        }
+        // controller
+        function techniqueTraining(part) {
+            let subType = model.subtypes;
+            let delB = [];
+            for (let i = 0; i < subType.length; i++) {
+                delB.push(subType[i].name)   
+            }
+
+            let optionsHtml = '';
+            for(let i = 0; i <delB.length; i++) {
+                optionsHtml += `<li><a href="#" onclick="showMoreInfo('${delB[i]}')">${delB[i]}</a></li>`;
+            }
+
+            return /*HTML*/` <ul>${optionsHtml}</ul>`
+        }
+        function showMoreInfo(subtypeName) {
+            let infogreier = '';
+            infogreier = subtypeInfo[subtypeName] || '';
+            document.getElementById('techniqueInfo').innerHTML = infogreier;
+            // alert(`More information about ${subtypeName}`);
+}
+
+        // function showPart(part) {
+        //     for(let i = 0; i < model.categories.length; i++) {
+        //         if(i = 0 ) {trainingCategory = 0};
+        //         if(i = 1 ) {trainingCategory = 1};
+        //         if(i = 2 ) {trainingCategory = 1};
+
+        //     }
+        // }
 
     </script>
-
 </body>
 
 </html>
