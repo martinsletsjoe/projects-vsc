@@ -6,36 +6,159 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="js/beltController.js"></script>
-     <style>
+    <style>
         body {
             background-color: black;
             color: white;
+            margin-left: 5vh;
+            font-family: 'Times New Roman', Times, serif;
         }
-     </style>
+
+        .header-style {
+            display: flex;
+            justify-content: space-between;
+            flex-direction: row;
+            background-color: black;
+            color: white;
+            border: none;
+            padding: 10px;
+            margin-bottom: 10px;
+            font-size: 15vh;
+        }
+
+        .myPage {
+            margin-top: 15vh;
+            font-size: 8vh;
+            background-color: rgb(24, 20, 20);
+            color: white;
+            border: none;
+            border-radius: 20px;
+        }
+
+        .myPage:hover {
+            transition-duration: 0.4s;
+            background-color: rgb(39, 33, 29);
+            box-shadow: 0 0 25px rgba(118, 177, 83, 0.2);
+        }
+
+        .showCasingBelts {
+            display: flex;
+            flex-direction: row;
+            font-size: 3vh;
+            gap: 5px;
+        }
+
+        .squareBelt {
+            border: rgb(39, 33, 29) solid 1px;
+            border-radius: 10px;
+            background-color: rgb(39, 33, 29);
+            margin-top: 5vh;
+        }
+
+        .squareBelt:hover {
+            background-color: rgb(39, 33, 29);
+            box-shadow: 0 0 25px rgba(118, 177, 83, 0.2);
+        }
+
+        .smallerLetters {
+            font-size: 2vh;
+            font-style: italic;
+        }
+
+        .logo {
+            width: 10vh;
+            border-radius: 10px;
+        }
+
+        #headerInfo {
+            display: flex;
+            flex-direction: row;
+            font-size: 3vh;
+        }
+
+        .topHeaderLine {
+            font-size: 3vh;
+            /* Adjust the font size for these elements */
+            margin-left: 10px;
+            /* Add some margin between the elements */
+        }
+
+        .topHeaderLineContainer {
+            align-self: flex-end;
+            /* Align to the end of the flex container */
+        }
+
+        select.header-style option {
+            font-size: 2vh;
+        }
+        
+    </style>
 </head>
 
 <body>
     <div id="app"></div>
+
+    <div class="showCasingBelts">
+        <div class="squareBelt">Oransj belte
+            <div class="smallerLetters">Se pensum og øvelser for å oransj belte</div>
+        </div>
+        <div class="squareBelt">Grønt belt
+            <div class="smallerLetters">Se pensum og øvelser for å Grønt belt</div>
+        </div>
+        <div class="squareBelt">Blått belte
+            <div class="smallerLetters">Se pensum og øvelser for å Blått belte</div>
+        </div>
+        <div class="squareBelt">Brunt belte
+            <div class="smallerLetters">Se pensum og øvelser for å Brunt belte</div>
+        </div>
+        <div class="squareBelt">Sort belte
+            <div class="smallerLetters">Se pensum og øvelser for å Sort belte</div>
+        </div>
+    </div>
+
+
+
     <script>
+        let belts = model.belts;
         // model
 
         // view
         updateView();
         function updateView() {
-            let belts = model.belts
-            let optionsHtml = '';
-            let beltOptions = [];
-            for (let i = 0; i < belts.length; i++) {
-                beltOptions.push()
-            }
+
             document.getElementById('app').innerHTML = /*HTML*/`
-            <h1>${belts[0].name}</h1>
-            <button>min side</button>
+            <div class="header-style">
+                <img class="logo" src="img/bnn2tu006vo41.jpg">
+                <div id="headerInfo" class="topHeaderLineContainer">
+                    <div class="topHeaderLine">Forside</div>
+                    <div class="topHeaderLine">Øvelser</div>
+                    <div class="topHeaderLine">Trening</div>
+                    <div class="topHeaderLine">Minside</div>
+                    <div class="topHeaderLine">Navn</div>
+                </div>
+            </div>
+
+            ${showBelts()}
+            <br/>
+            <button class="myPage">min side</button>
             `;
-            
+
         }
 
         // controller
+
+        function showBelts() {
+            let belts = model.belts
+            let optionsHtml = '';
+            for (let i = 0; i < belts.length; i++) {
+                optionsHtml += `<option>${belts[i].name}</option>`;
+            }
+
+
+            return /*HTML*/`
+            <select class="header-style">${optionsHtml}</select>
+            `;
+        }
 
     </script>
 </body>
