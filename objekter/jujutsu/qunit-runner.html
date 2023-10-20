@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>QUnit Test Runner</title>
+  <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.16.0.css">
+</head>
+<body>
+  <div id="qunit"></div>
+  <div id="qunit-fixture"></div>
+  <script src="https://code.jquery.com/qunit/qunit-2.16.0.js"></script>
+  <script src="myModule.test.js"></script>
+  <script src="anotherModule.test.js"></script>
+
+  <script>
+    QUnit.test("Test case 1", function (assert) {
+  assert.ok(true, "This test should pass.");
+});
+
+QUnit.test("Test case 2", function (assert) {
+  assert.equal(2 + 2, 4, "This test should also pass.");
+});
+  </script>
+</body>
+</html>

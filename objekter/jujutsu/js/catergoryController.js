@@ -1,15 +1,14 @@
-function categoryToggle(){
-    document.addEventListener("DOMContentLoaded", function () {
-        const toggleHeader = document.querySelector(".toggle-header");
-        const toggleContent = document.querySelector(".toggle-content");
-    
-        toggleHeader.addEventListener("click", function () {
-            if (toggleContent.style.display === "none" || toggleContent.style.display === "") {
-                toggleContent.style.display = "block";
-            } else {
-                toggleContent.style.display = "none";
-            }
-        });
-    });
-    
+function techniqueTraining(start, end) {
+    let subType = model.subtypes;
+    let delB = [];
+    for (let i = start; i < subType.length - end; i++) {
+        delB.push(subType[i].name)   
+    }
+
+    let optionsHtml = '';
+    for(let i = 0; i <delB.length; i++) {
+        optionsHtml += `<li><a href="#" onclick="clickedTrainingInfo('${delB[i]}')">${delB[i]}</a></li>`;
+    }
+
+    return /*HTML*/` <ul>${optionsHtml}</ul>`
 }

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script>
+        // model
+        let pointsPerClick = 1;
+        let points = 50;
+        let mega = false;
+
+        // view
+        updateView();
+        function updateView() {
+            document.getElementById('app').innerHTML = /*HTML*/`
+                <div>du har ${points} poeng.</div>
+                <button onclick = "doClick()" > +</button >
+                ${showUpgradeButton()}
+                <button onclick="megaUpgrade()">Mega upgrade</button>`;
+
+        }
+        
+        function showUpgradeButton() {
+            let html = '';
+            if(points >= 10) {
+                html += /*HTML*/`<button onclick="doUpgrade()">oppgrader</button>`;
+            }return html;
+        }
+
+
+        // controller
+        function doClick() {
+            points += pointsPerClick;
+            updateView();
+        }
+
+        function doUpgrade() {
+            if (points < 10) return;
+            mega ? pointsPerClick *= 2: pointsPerClick++;
+            points -= 10;
+            mega = false;
+            updateView();
+        }
+
+        function megaUpgrade() {
+            if (points < 50) return;
+            mega = true;
+            points -= 50;
+            updateView();
+
+        }
+
+    </script>
+</body>
+
+</html>

@@ -31,43 +31,36 @@
         // view
         updateView();
         function updateView() {
-            let categories = model.categories;
-            for(let i = 0; i < categories.length; i++){
-                const trainingCategory = categories[i].name;
-                const start = i * 4;
-                const end = start + 4;
-                const subTypeToShow = model.subtypes.slice(start, end);
-                const container = document.createElement('div');
-                container.innerHTML += /*HTML*/`
-                <h1>${trainingCategory}</h1>
-                ${techniqueTraining(subTypeToShow)}
+            let trainingCategory = model.categories;
+            document.getElementById('app').innerHTML = /*HTML*/`
+            <h1>${trainingCategory[0].name}</h1>
+                ${techniqueTraining(0,5)}
+            <h1>${trainingCategory[1].name}</h1>
+                ${techniqueTraining(8, 1)}
                 <div id="techniqueInfo"></div>
-                `;
-                document.getElementById('app').appendChild(container);
-            }
-
+            <h1>${trainingCategory[2].name}</h1>
+                ${techniqueTraining(12,0)}
+            `;
 
         }
         // controller
-        function techniqueTraining(part) {
+        function techniqueTraining(start, end) {
             let subType = model.subtypes;
             let delB = [];
-            for (let i = 0; i < subType.length; i++) {
+            for (let i = start; i < subType.length - end; i++) {
                 delB.push(subType[i].name)   
             }
 
             let optionsHtml = '';
             for(let i = 0; i <delB.length; i++) {
-                optionsHtml += `<li><a href="#" onclick="showMoreInfo('${delB[i]}')">${delB[i]}</a></li>`;
-            }
+                optionsHtml += `<li onclick="clickedTrainingInfo('${delB[i]}'); return false;">${delB[i]}</li>`;            }
 
             return /*HTML*/` <ul>${optionsHtml}</ul>`
         }
-        function showMoreInfo(subtypeName) {
-            let infogreier = '';
-            infogreier = subtypeInfo[subtypeName] || '';
-            document.getElementById('techniqueInfo').innerHTML = infogreier;
-            // alert(`More information about ${subtypeName}`);
+        function clickedTrainingInfo(subtypeName) {
+            let infoTraining = '';
+            infoTraining = subtypeInfo[subtypeName] || '';
+            document.getElementById('techniqueInfo').innerHTML = infoTraining;
 }
 
         // function showPart(part) {
