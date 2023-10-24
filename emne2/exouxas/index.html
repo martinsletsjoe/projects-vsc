@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            display: grid;
+
+        }
+
+        .header {
+            grid-area: header;
+            background-color: aqua;
+        }
+
+        .main {
+            grid-area: main;
+        background-color: green;
+        }
+
+        .sidebar {
+            grid-area: sidebar;
+            background-color: gray;
+        }
+
+        .footer {
+            grid-area: footer;
+            background-color: red;
+        }
+        .page {
+            display: grid;
+            height: 99vh;
+            grid-template-areas: "sidebar header header"
+                                 "sidebar header header"
+                                 "sidebar footer main";
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script>
+        // model
+
+        // view
+        updateView();
+        function updateView() {
+            document.getElementById('app').innerHTML = /*HTML*/`
+            <div class="page">
+                <div class="header">hei</div>
+                <div class="main">hallo</div>
+                <div class="sidebar">yo</div>
+                <div class="footer">foshizzle</div>
+            </div>`;
+
+        }
+
+        // controller
+
+    </script>
+</body>
+
+</html>
