@@ -1,4 +1,5 @@
 const model = {
+    selectCountry: null,
     southAmericanCountries: [
         {
             name: 'Argentina',

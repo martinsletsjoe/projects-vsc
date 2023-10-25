@@ -17,28 +17,49 @@
 <body>
     <div id="app"></div>
     <script>
-        // model
-        let countryStuff = southAmericanCountries
+        
 
         // view
         updateView();
         function updateView() {
-            html = '';
-            for (let country of countryStuff) {
-                html += /*HTML*/`<li onclick="">${country.name}</li>`;
-            }
+
             document.getElementById('app').innerHTML = /*HTML*/`
             <ul>
-                ${html}
+                ${showCountry()}
             </ul>
+            <pre>selected country: ${model.selectCountry}</pre>
+            <ul>${showNeighbouringCountry()}</ul>
+            
             `;
             
         }
 
-        function showNeighboringCountry(){
-
+        function showCountry(){
+            html = '';
+            for (let country of model.southAmericanCountries) {
+                html += /*HTML*/`<li onclick="selectedCountry('${country.name}')">${country.name}</li>`;
+            }
+            return html;
         }
+
+        function showNeighbouringCountry() {
+            html = '';
+            for (let country of model.southAmericanBorders) {
+                if(country.countryA == model.selectCountry) {
+                    html += `<li>${country.countryB}</li>`
+                }else if (country.countryB == model.selectCountry) {
+                    html += `<li>${country.countryA}</li>`;
+                }
+            }
+            console.log(html)
+            return html;
+        }
+
         // controller
+        function selectedCountry(id){
+            model.selectCountry = id;
+            updateView();
+        }
 
     </script>
 </body>
