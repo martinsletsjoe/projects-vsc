@@ -43,17 +43,13 @@
         }
 
         function showNeighbouringCountry() {
-            html = '';
-            for (let country of model.southAmericanBorders) {
-                if(country.countryA == model.selectCountry) {
-                    html += `<li>${country.countryB}</li>`
-                }else if (country.countryB == model.selectCountry) {
-                    html += `<li>${country.countryA}</li>`;
-                }
-            }
-            console.log(html)
-            return html;
-        }
+    html = '';
+    for (let country of model.southAmericanBorders) {
+        const countryName = country.countryA == model.selectCountry ? country.countryB : country.countryA;
+        html += `<li>${countryName}</li>`
+    }
+    return html;
+}
 
         // controller
         function selectedCountry(id){
