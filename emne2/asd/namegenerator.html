@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <style>
+        body {
+            background-color: black;
+            color: white;
+            font-size: 500%;
+        }
+     </style>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script>
+        // model
+        let newName = '';
+
+        // view
+        updateView();
+        function updateView() {
+            document.getElementById('app').innerHTML = /*HTML*/`
+           
+            <button onclick="nextName()">trykk</button>
+            ${nextName('martin')}
+            `;
+            
+        }
+
+        // controller
+        function nextName(name) {
+            let nameArray = name.split('')
+
+            let html = String.fromCharCode(name.charCodeAt(5)+1)
+
+            nameArray[5] = html;
+            newName = nameArray.join('')
+            return newName;
+        }
+
+    </script>
+</body>
+
+</html>

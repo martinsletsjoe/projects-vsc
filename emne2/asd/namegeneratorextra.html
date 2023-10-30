@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-size: 500%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script>
+        // model
+        let name = 'martin'
+        
+        // view
+        updateView();
+        function updateView() {
+            document.getElementById('app').innerHTML = /*HTML*/`
+
+            ${name}<br/>
+            <button onclick="nextName()">click</button>
+            `;
+
+        }
+
+        // controller
+        function nextName() {
+            let nameArray = name.split('')
+            let html = '';
+            for(let i = name.length-1; i >= 0; i--){
+                if(name[i] == 'y'){return} else {
+                html += name[i]}
+            }
+            let letter = '';
+            letter = String.fromCharCode(html.charCodeAt(0)+1)
+
+            nameArray[5] = letter
+            name = nameArray.join('')
+            updateView();
+        }
+
+
+            // let lastletter = name.length -1
+            // let letter = name;
+            // letter = String.fromCharCode(letter.charCodeAt(lastletter))
+            // console.log(letter)
+            // return letter
+
+        function plsfuckingwork() {
+
+        }
+    </script>
+</body>
+
+</html>
+
+<!-- Finn siste bokstav
+    bytt den bokstaven med neste i alfabetet
+    legg til den nye bokstaven i originalet ordet -->

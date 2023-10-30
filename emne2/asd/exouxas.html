@@ -6,18 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="js/model.js"></script>
-     <style>
+    <style>
         body {
             background-color: black;
             color: white;
         }
-     </style>
+    </style>
 </head>
 
 <body>
     <div id="app"></div>
     <script>
-        
+
 
         // view
         updateView();
@@ -31,10 +31,10 @@
             <ul>${showNeighbouringCountry()}</ul>
             
             `;
-            
+
         }
 
-        function showCountry(){
+        function showCountry() {
             html = '';
             for (let country of model.southAmericanCountries) {
                 html += /*HTML*/`<li onclick="selectedCountry('${country.name}')">${country.name}</li>`;
@@ -43,16 +43,17 @@
         }
 
         function showNeighbouringCountry() {
-    html = '';
-    for (let country of model.southAmericanBorders) {
-        const countryName = country.countryA == model.selectCountry ? country.countryB : country.countryA;
-        html += `<li>${countryName}</li>`
-    }
-    return html;
-}
+            html = '';
+            for (let country of model.southAmericanBorders) {
+                if (model.selectCountry === country.countryA || model.selectCountry === country.countryB){
+                const countryName = country.countryA == model.selectCountry ? country.countryB : country.countryA;
+                html += `<li>${countryName}</li>`}
+            }
+            return html;
+        }
 
         // controller
-        function selectedCountry(id){
+        function selectedCountry(id) {
             model.selectCountry = id;
             updateView();
         }
