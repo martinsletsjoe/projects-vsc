@@ -5,44 +5,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-     <style>
+    <style>
         body {
             background-color: black;
             color: white;
             font-size: 500%;
         }
-     </style>
+    </style>
 </head>
 
 <body>
     <div id="app"></div>
     <script>
         // model
-        let newName = '';
+        let name = 'martin'
 
         // view
         updateView();
         function updateView() {
             document.getElementById('app').innerHTML = /*HTML*/`
-           
-            <button onclick="nextName()">trykk</button>
-            ${nextName('martin')}
+
+            ${name}<br/>
+            <button onclick="nextName()">click</button>
             `;
-            
+
         }
 
         // controller
-        function nextName(name) {
-            let nameArray = name.split('')
+        function nextName() {
+            let nameArray = name.split('').reverse();
+            console.log(nameArray)
+            letter = nameArray.join('')
+            letter = String.fromCharCode(letter.charCodeAt(0) + 1)
+            console.log(letter)
 
-            let html = String.fromCharCode(name.charCodeAt(5)+1)
+            if (letter != 'z') {
+                nameArray[0] = letter
+            }
+            if(letter == 'z') {
+                nameArray[0] = 'a'
+                let newLetter = nameArray[1];
+                newLetter = String.fromCharCode(newLetter.charCodeAt(0) + 1)
+                nameArray[1] = newLetter;}
 
-            nameArray[5] = html;
-            newName = nameArray.join('')
-            return newName;
+
+            name = nameArray.reverse().join('')
+            updateView();
         }
+
+
+
 
     </script>
 </body>
 
 </html>
+
+<!-- Finn siste bokstav
+    bytt den bokstaven med neste i alfabetet
+    legg til den nye bokstaven i originalet ordet -->

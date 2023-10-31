@@ -36,7 +36,11 @@
             let nameArray = name.split('')
             let html = '';
             for(let i = name.length-1; i >= 0; i--){
-                if(name[i] == 'y'){return} else {
+                if(name[i] == 'z'){
+                    nameArray[i] = 'a'
+                    nameArray[i-1] = 'j'
+                console.log(nameArray)}
+                    else {
                 html += name[i]}
             }
             let letter = '';
@@ -45,17 +49,6 @@
             nameArray[5] = letter
             name = nameArray.join('')
             updateView();
-        }
-
-
-            // let lastletter = name.length -1
-            // let letter = name;
-            // letter = String.fromCharCode(letter.charCodeAt(lastletter))
-            // console.log(letter)
-            // return letter
-
-        function plsfuckingwork() {
-
         }
     </script>
 </body>

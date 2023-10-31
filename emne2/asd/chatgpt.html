@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Next Name Generator</title>
+</head>
+<body>
+  <h1>Next Name Generator</h1>
+  <p>Current Name: <span id="currentName">ÅAB</span></p>
+  <p>Next Name: <span id="nextName">-</span></p>
+  <button onclick="generateNextName()">Generate Next Name</button>
+
+  <script>
+    function nextName(name) {
+      // Convert the name into an array of letters for easier manipulation
+      const nameArray = name.split('');
+
+      // Start from the last letter in the name
+      for (let i = nameArray.length - 1; i >= 0; i--) {
+        // If the letter is not 'Å'
+        if (nameArray[i] !== 'Å') {
+          // Change the letter to the next letter
+          nameArray[i] = String.fromCharCode(nameArray[i].charCodeAt(0) + 1);
+
+          // Return the new text
+          return nameArray.join('');
+        } else {
+          // If the letter is 'Å', change it to 'A' and continue the loop
+          nameArray[i] = 'A';
+        }
+      }
+
+      // If the loop is finished, return null
+      return null;
+    }
+
+    function generateNextName() {
+      const currentNameSpan = document.getElementById('currentName');
+      const nextNameSpan = document.getElementById('nextName');
+
+      const currentName = currentNameSpan.innerText;
+      const next = nextName(currentName);
+
+      if (next) {
+        currentNameSpan.innerText = next;
+        nextNameSpan.innerText = next;
+      } else {
+        nextNameSpan.innerText = 'No more names to generate';
+      }
+    }
+  </script>
+</body>
+</html>
