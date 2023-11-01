@@ -46,7 +46,13 @@
                 nameArray[0] = 'a'
                 let newLetter = nameArray[1];
                 newLetter = String.fromCharCode(newLetter.charCodeAt(0) + 1)
-                nameArray[1] = newLetter;}
+                nameArray[1] = newLetter;
+            if(newLetter == 'z'){
+                let thirdletter = nameArray[2];
+                thirdletter = String.fromCharCode(newLetter.charCodeAt(0) + 1);
+                nameArray[2] = thirdletter;
+            }
+            }
 
 
             name = nameArray.reverse().join('')
@@ -54,7 +60,8 @@
         }
 
 
-
+// for(letter of names.split('')) --> kan dette være en ide? 
+// kanskje en funksjon inne i denne løkken?
 
     </script>
 </body>

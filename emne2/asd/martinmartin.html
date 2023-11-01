@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script>
+
+
+        let aName = 'AA';
+        while (aName != null) {
+            console.log(aName);
+            aName = nextName(aName);
+        }
+        function nextName(name) {
+            for (let i = name.length - 1; i >= 0; i--) {
+                let nameArray = name.split('')
+                if (name[i] != 'Z') {
+                    const letter = String.fromCharCode(name.charCodeAt(i) + 1)
+                    nameArray[i] = letter
+                    return nameArray.join('')
+                }
+                nameArray[i] = 'A'
+                name = nameArray.join('')
+
+
+            }
+            return null;
+        }
+
+    </script>
+</body>
+
+</html>

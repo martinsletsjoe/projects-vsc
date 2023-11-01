@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+        #button {
+            width: 100px;
+        }
+
+     </style>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script>
+        // model
+        let result = '';
+
+        // view
+        updateView();
+        function updateView() {
+            document.getElementById('app').innerHTML = /*HTML*/`
+
+            <button onclick="showName('martiz')">trykk</button>
+            <br/>
+            ${result}
+            `;
+            
+        }
+
+
+        function nextName(name) {
+            let nameArray = name.split('').reverse();
+            let z = 'z'.charCodeAt(0);
+            console.log(z)
+            letter = nameArray.join('').charCodeAt(0)
+            
+            if(letter == z){
+                nameArray[1] = String.fromCharCode(nameArray[1].charCodeAt(0)+1)
+                console.log(nameArray)
+                nameArray[0] = 'a'
+            }
+            name = nameArray.reverse().join('');
+            // console.log(letter)
+            return name
+
+            
+        }
+
+        function showName(name) {
+            result = nextName(name)
+            updateView();
+        }
+
+    </script>
+</body>
+
+</html>
