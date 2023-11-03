@@ -41,17 +41,16 @@
 
         // controller
         function square(colour, size) {
-            const repetisjon = `style="width: ${size * (1 / 6)}vh; height: ${size * (1 / 6)}vh; background-color: ${colour}; position: absolute; `;
+            const smallSquareStyling = `style="width: ${size * (1 / 6)}vh; height: ${size * (1 / 6)}vh; background-color: ${colour}; position: absolute; `;
             const positionSmallSquares = size * (1 / 8)
             return `<div class="function-container" style="width: ${size}vh; height: ${size}vh; background-color: ${colour}; position: relative;">
                         <div style="width: ${size * (2 / 3)}vh; height: ${size * (2 / 3)}vh; background-color: wheat; position: absolute; top: ${size * (1 / 6)}vh; left: ${size * (1 / 6)}vh;">
-                            <div ${repetisjon} top: ${positionSmallSquares}vh; left: ${positionSmallSquares}vh"></div>
-                            <div ${repetisjon} top: ${positionSmallSquares}vh; right: ${positionSmallSquares}vh"></div>
-                            <div ${repetisjon} bottom: ${positionSmallSquares}vh; right: ${positionSmallSquares}vh"></div>
-                            <div ${repetisjon} bottom: ${positionSmallSquares}vh; left: ${positionSmallSquares}vh"></div>
+                            <div ${smallSquareStyling} top: ${positionSmallSquares}vh; left: ${positionSmallSquares}vh"></div>
+                            <div ${smallSquareStyling} top: ${positionSmallSquares}vh; right: ${positionSmallSquares}vh"></div>
+                            <div ${smallSquareStyling} bottom: ${positionSmallSquares}vh; right: ${positionSmallSquares}vh"></div>
+                            <div ${smallSquareStyling} bottom: ${positionSmallSquares}vh; left: ${positionSmallSquares}vh"></div>
                         </div>
-                    </div>
-`;
+                    </div>`;
 
 
         }
