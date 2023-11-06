@@ -12,20 +12,14 @@
             color: white;
         }
 
-        .center {
-            margin-top: 20px;
-            margin-left: auto;
-            margin-right: auto;
-            width: 70%;
-            
-        }
-        th {
-            border: 1px solid white;
-            /* border-collapse: collapse; */
-            
-        }
         table {
+            border: 1px solid white;
             border-collapse: collapse;
+        }
+
+        td,
+        th {
+            border: 1px solid wheat;
         }
     </style>
 </head>
@@ -33,35 +27,71 @@
 <body>
     <div id="app"></div>
     <script>
+        // Sample model data structure
 
 
         // view
         updateView();
         function updateView() {
             document.getElementById('app').innerHTML = /*HTML*/`
-            <table class="center">
-                <tr>
-                    ${headerLoop(model.player)}
-                </tr>
-            </table>
-            `;
-
+        <table class="center">
+            <tr>
+                <th></th>
+                ${headerLoop(model.players)}
+            </tr>
+            ${categoryLoop()}
+        </table>
+        <button onclick=calculateSumAndTotalSum()>click</button>
+        `;
         }
 
         // controller
-        function headerLoop(valueData) {
+        function headerLoop(playerData) {
             let html = '';
-            for (value of valueData) {
-                html += /*HTML*/ `<th>${value.name}</th>`;
+            for (player of playerData) {
+                html += /*HTML*/ `<th>${player.name}</th>`;
             }
             return html;
         }
 
-        function dataLoop(){
-            
+        function categoryLoop() {
+            let html = '';
+            for (let i = 0; i < model.categories.length; i++) {
+                const category = model.categories[i];
+                html += /*HTML*/ `<tr><th>${category.name}</th>${rowLoop(category.scores)}</tr>`;
+            }
+            return html;
         }
 
+        function rowLoop(scores) {
+            let html = '';
+            for (let i = 0; i < scores.length; i++) {
+                const score = scores[i];
+                html += /*HTML*/ `<td>${score !== null ? score : ''}</td>`;
+            }
+            return html;
+        }
+
+        function calculateSumAndTotalSum() {
+            for (let i = 0; i < model.players.length; i++) {
+                let sum = 0;
+                let sum2 = 0;
+                for (let j = 0; j < model.categories.length; j++) {
+                    if (model.categories[j].scores[i] !== null && model.categories[j].part == 1) {
+                        sum += model.categories[j].scores[i];
+                        console.log(sum)
+                    }
+                    else sum2 += model.categories[j].scores[i];
+                }
+                const totalSum = sum + sum2
+
+                model.categories[model.categories.length - 12].scores[i] = sum; // Set "Sum"
+                model.categories[model.categories.length - 1].scores[i] = totalSum; // Set "Totalsum"
+                updateView();
+            }
+        }
     </script>
+
 </body>
 
 </html>
