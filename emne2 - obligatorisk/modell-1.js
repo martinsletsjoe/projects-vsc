@@ -5,7 +5,7 @@ const model = {
         { name: "Espen", score: [] },
     ],
     categories: [
-        //del 1
+        //part 1 for å kunne regne ut sum lett
         { name: "Enere", scores: [4, null, null], part: 1, },
         { name: "Toere", scores: [null, null, null], part: 1, },
         { name: "Treere", scores: [null, null, null], part: 1, },
@@ -13,7 +13,7 @@ const model = {
         { name: "Femmere", scores: [null, 15, 25], part: 1, },
         { name: "Seksere", scores: [null, null, 30], part: 1, },
         { name: "Sum", scores: [4, 15, 75], part: 1, },
-        //del 2
+        //part 2 for å kunne regne ut totalsum = part1 + part2
         { name: "Bonus", scores: [null, null, 50], part: 2, },
         { name: "1 par", scores: [12, null, null], part: 2, },
         { name: "2 par", scores: [null, null, null], part: 2, },
@@ -24,6 +24,6 @@ const model = {
         { name: "Hus", scores: [null, 27, null], part: 2, },
         { name: "Sjanse", scores: [null, null, null], part: 2, },
         { name: "Yatzy", scores: [50, null, null], part: 2, },
-        { name: "Totalsum", scores: [66, 57, 125], part: 2, }
+        { name: "Totalsum", scores: [66, 57, 125], part: 2, },
     ]
 };
