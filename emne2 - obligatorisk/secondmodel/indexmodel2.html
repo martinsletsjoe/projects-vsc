@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="modell-2.js"></script>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            display: flex;
+            flex-direction: row;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script>
+        // model
+
+        // view
+        updateView();
+        function updateView() {
+            document.getElementById('app').innerHTML = /*HTML*/`
+            <table>
+
+                <th></th>
+                ${drawHeader()}
+                
+                    ${drawBoard(0)}
+                    ${drawBoard(1)}
+            </table>
+            `;
+
+        }
+        function drawBoard(id) {
+            let html = '';
+            const player = model.players[id];
+            
+            for (const prop in player.scorecard) {
+                html += /*HTML*/`<tr><th>${prop}</th><td>${player.scorecard[prop] || ''}</td></tr>`;
+            }
+            return html;
+        }
+
+        function drawHeader(){
+            let html = '';
+            for(player of model.players) {
+                html += `<th>${player.name}</th>`;
+            }
+            return html
+        }
+
+       
+
+    </script>
+</body>
+
+</html>

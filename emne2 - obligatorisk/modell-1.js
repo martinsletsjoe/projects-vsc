@@ -1,11 +1,11 @@
 const model = {
     players: [
-        { name: "Per", score: [] },
-        { name: "Pål", score: [] },
-        { name: "Espen", score: [] },
+        { name: "Per", },
+        { name: "Pål", },
+        { name: "Espen", },
     ],
     categories: [
-        //part 1 for å kunne regne ut sum lett
+        //part 1 skille
         { name: "Enere", scores: [4, null, null], part: 1, },
         { name: "Toere", scores: [null, null, null], part: 1, },
         { name: "Treere", scores: [null, null, null], part: 1, },
@@ -13,7 +13,7 @@ const model = {
         { name: "Femmere", scores: [null, 15, 25], part: 1, },
         { name: "Seksere", scores: [null, null, 30], part: 1, },
         { name: "Sum", scores: [4, 15, 75], part: 1, },
-        //part 2 for å kunne regne ut totalsum = part1 + part2
+        //part 2 skille
         { name: "Bonus", scores: [null, null, 50], part: 2, },
         { name: "1 par", scores: [12, null, null], part: 2, },
         { name: "2 par", scores: [null, null, null], part: 2, },
