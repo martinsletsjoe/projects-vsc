@@ -14,7 +14,7 @@ const model = {
         { name: "Seksere", scores: [null, null, 30], part: 1, },
         { name: "Sum", scores: [4, 15, 75], part: 1, },
         //part 2 skille
-        { name: "Bonus", scores: [null, null, 50], part: 2, },
+        { name: "Bonus", scores: [0, 0, 50], part: 2, },
         { name: "1 par", scores: [12, null, null], part: 2, },
         { name: "2 par", scores: [null, null, null], part: 2, },
         { name: "3 like", scores: [null, null, null], part: 2, },

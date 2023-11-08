@@ -13,6 +13,15 @@
             display: flex;
             flex-direction: row;
         }
+        table {
+            border: 1px solid white;
+            border-collapse: collapse;
+        }
+
+        td,
+        th {
+            border: 1px solid wheat;
+        }
     </style>
 </head>
 
@@ -31,32 +40,58 @@
                 ${drawHeader()}
                 
                     ${drawBoard(0)}
-                    ${drawBoard(1)}
+                   
             </table>
             `;
 
         }
-        function drawBoard(id) {
+        function drawHeader() {
             let html = '';
-            const player = model.players[id];
-            
-            for (const prop in player.scorecard) {
-                html += /*HTML*/`<tr><th>${prop}</th><td>${player.scorecard[prop] || ''}</td></tr>`;
-            }
-            return html;
-        }
-
-        function drawHeader(){
-            let html = '';
-            for(player of model.players) {
+            for (player of model.players) {
                 html += `<th>${player.name}</th>`;
             }
             return html
         }
 
-       
+        function drawBoard(id) {
+            let html = '';
+            const player = model.players[id];
+
+            for (const prop in player.scorecard) {
+                html += /*HTML*/`
+            <tr>
+                <th>${prop}</th>
+                ${drawCells(player, prop)}
+            </tr>
+        `;
+            }
+            return html;
+        }
+
+        function drawCells(player, prop) {
+            let html = '';
+            for (const playerData of model.players) {
+                html += `<td>${playerData.scorecard[prop] !== null ? playerData.scorecard[prop]: ''}</td>`;
+            }
+            return html;
+        }
+
+
+
+
 
     </script>
 </body>
 
 </html>
+<!-- <td>${player.scorecard[prop] || ''}</td> -->
+
+<!--         function drawData() {
+            let html = '';
+            const playerId = 0;
+            const scorecardLength = Object.keys(model.players[playerId].scorecard).length;
+            for(let i = 0; i < scorecardLength; i++){
+                html += 
+            }
+        }
+ -->
