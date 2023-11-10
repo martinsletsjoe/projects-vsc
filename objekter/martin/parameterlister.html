@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script>
+        
+        const ones = ['null', 'en', 'to', 'tre', 'fire', 'fem', 'seks', 'sju', 'åtte', 'ni'];
+        function oppgave(start, slutt) {
+            let listOfNumbers = [];
+            for (let i = start; i < slutt; i++) {
+                listOfNumbers.push(ones[i])
+                
+            }
+            return listOfNumbers
+        }
+        
+        console.log(oppgave(1, 9))
+        
+    </script>
+</body>
+
+</html>

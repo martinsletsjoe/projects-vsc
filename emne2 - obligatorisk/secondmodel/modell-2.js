@@ -3,7 +3,7 @@ const model = {
     {
       "id": 0,
       "name": "Per",
-      "scorecard": {
+      "categories": {
         "Enere": 4,
         "Toere": null,
         "Treere": null,
@@ -27,7 +27,7 @@ const model = {
     {
       "id": 1,
       "name": "Pål",
-      "scorecard": {
+      "categories": {
         "Enere": null,
         "Toere": null,
         "Treere": null,
@@ -51,7 +51,7 @@ const model = {
     {
       "id": 2,
       "name": "Espen",
-      "scorecard": {
+      "categories": {
         "Enere": null,
         "Toere": null,
         "Treere": null,

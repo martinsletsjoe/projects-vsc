@@ -57,7 +57,7 @@
             let html = '';
             const player = model.players[id];
 
-            for (const prop in player.scorecard) {
+            for (const prop in player.categories) {
                 html += /*HTML*/`
             <tr>
                 <th>${prop}</th>
@@ -71,7 +71,7 @@
         function drawCells(player, prop) {
             let html = '';
             for (const playerData of model.players) {
-                html += `<td>${playerData.scorecard[prop] !== null ? playerData.scorecard[prop]: ''}</td>`;
+                html += `<td>${playerData.categories[prop] !== null ? playerData.categories[prop]: ''}</td>`;
             }
             return html;
         }
