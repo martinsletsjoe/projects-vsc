@@ -27,3 +27,4 @@ const model = {
         { name: "Totalsum", scores: [66, 57, 125], part: 2, },
     ]
 };
+

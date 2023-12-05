@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="listOfStuff.js"></script>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script>
+        // model
+
+        // view
+        function updateView() {
+            var sum = sumFirstLastDigits(myList);
+            document.getElementById('app').innerHTML = /*HTML*/`
+        ${sum}
+
+    `;
+        }
+        function sumFirstLastDigits(lines) {
+            let totalSum = 0;
+
+            for (let i = 0; i < lines.length; i++) {
+                // Extract digits from the string
+                let digits = lines[i].match(/\d/g);
+
+                if (digits && digits.length >= 2) {
+                    // Get the first and last digits
+                    let firstDigit = parseInt(digits[0]);
+                    let lastDigit = parseInt(digits[digits.length - 1]);
+
+                    // Sum up the first and last digits
+                    let digitSum = firstDigit + lastDigit;
+
+                    // Add the digit sum to the total sum
+                    totalSum += digitSum;
+                }
+            }
+
+            return totalSum;
+        }
+        updateView();
+
+
+        // controller
+
+    </script>
+</body>
+
+</html>
